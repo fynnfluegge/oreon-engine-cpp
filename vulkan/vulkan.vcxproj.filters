@@ -9,9 +9,24 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Header Files\context">
+      <UniqueIdentifier>{e10e3806-acac-412d-8a24-780f940a18ed}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\context">
+      <UniqueIdentifier>{51c4ae8d-47f7-4e2b-84c0-459124e4f7ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{382dff94-4375-4d3c-a5e0-5f1348b3f37f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\context\VkContext.h">
+      <Filter>Header Files\context</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\context\VkContext.cpp">
+      <Filter>Source Files\context</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
