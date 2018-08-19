@@ -17,5 +17,22 @@ private:
 	VkContext();
 	static VkContext instance;
 	VkInstance vkInstance;
+	VkDebugReportCallbackEXT callback;
+	bool checkValidationLayerSupport();
+	bool checkExtensionSupport(std::vector<const char*> extensions);
+	std::vector<const char*> getRequiredExtensions();
+	void setupDebugCallback();
+	VkResult CreateDebugReportCallbackEXT(VkInstance instance,
+		const VkDebugReportCallbackCreateInfoEXT* pCreateInfo,
+		VkDebugReportCallbackEXT* pCallback);
 	std::vector<const char*> enabledLayers;
+	static VKAPI_ATTR VkBool32 VKAPI_CALL MyDebugReportCallback(
+		VkDebugReportFlagsEXT flags,
+		VkDebugReportObjectTypeEXT objType,
+		uint64_t obj,
+		size_t location,
+		int32_t code,
+		const char* layerPrefix,
+		const char* msg,
+		void* userData);
 };
