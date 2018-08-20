@@ -24,6 +24,12 @@
     <Filter Include="Source Files\device">
       <UniqueIdentifier>{9dab0554-58c5-496a-9832-fb420dce40cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\queue">
+      <UniqueIdentifier>{d1e48a4f-1f62-415f-a225-fb23ef460ae6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\queue">
+      <UniqueIdentifier>{35e02ee5-c83f-4bd1-9829-e1d5a14e0333}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\context\deviceManager.h">
@@ -38,6 +44,18 @@
     <ClInclude Include="src\device\physicalDevice.h">
       <Filter>Header Files\device</Filter>
     </ClInclude>
+    <ClInclude Include="src\queue\queueFamily.h">
+      <Filter>Header Files\queue</Filter>
+    </ClInclude>
+    <ClInclude Include="src\queue\queueFamilies.h">
+      <Filter>Header Files\queue</Filter>
+    </ClInclude>
+    <ClInclude Include="src\device\deviceBundle.h">
+      <Filter>Header Files\device</Filter>
+    </ClInclude>
+    <ClInclude Include="src\device\deviceSurfaceCapabilities.h">
+      <Filter>Header Files\device</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\context\deviceManager.cpp">
@@ -50,6 +68,18 @@
       <Filter>Source Files\device</Filter>
     </ClCompile>
     <ClCompile Include="src\device\physicalDevice.cpp">
+      <Filter>Source Files\device</Filter>
+    </ClCompile>
+    <ClCompile Include="src\queue\queueFamily.cpp">
+      <Filter>Source Files\queue</Filter>
+    </ClCompile>
+    <ClCompile Include="src\queue\queueFamilies.cpp">
+      <Filter>Source Files\queue</Filter>
+    </ClCompile>
+    <ClCompile Include="src\device\deviceBundle.cpp">
+      <Filter>Source Files\device</Filter>
+    </ClCompile>
+    <ClCompile Include="src\device\deviceSurfaceCapabilities.cpp">
       <Filter>Source Files\device</Filter>
     </ClCompile>
   </ItemGroup>
