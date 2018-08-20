@@ -6,7 +6,6 @@
 class Window {
 
 public:
-	Window();
 	void create(int width, int height, const char* title);
 	void shutdown();
 	GLFWwindow* getHandle();

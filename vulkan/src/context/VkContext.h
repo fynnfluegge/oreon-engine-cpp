@@ -4,19 +4,22 @@
 #include <GLFW/glfw3.h>
 #include <vector>
 #include <vulkan/vulkan.h>
+#include "deviceManager.h"
 
 class VkContext {
 
 public:
 	static VkContext& getInstance();
 	void init();
-	VkInstance getVkInstance();
+	VkInstance& getVkInstance();
+	DeviceManager& getDeviceManager();
 	std::vector<const char*> getEnabledLayers();
 
 private:
 	VkContext();
 	static VkContext instance;
 	VkInstance vkInstance;
+	DeviceManager deviceManager;
 	VkDebugReportCallbackEXT callback;
 	bool checkValidationLayerSupport();
 	bool checkExtensionSupport(std::vector<const char*> extensions);

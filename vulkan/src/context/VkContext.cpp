@@ -1,4 +1,4 @@
-#include "VkContext.h"
+#include "vkContext.h"
 
 #ifndef _DEBUG
 const bool enableValidationLayers = false;
@@ -152,10 +152,14 @@ VKAPI_ATTR VkBool32 VKAPI_CALL VkContext::MyDebugReportCallback(
 	return VK_FALSE;
 }
 
-VkInstance VkContext::getVkInstance() {
+VkInstance& VkContext::getVkInstance() {
 	return vkInstance;
 }
 
 std::vector<const char*> VkContext::getEnabledLayers() {
 	return enabledLayers;
+}
+
+DeviceManager& VkContext::getDeviceManager() {
+	return deviceManager;
 }

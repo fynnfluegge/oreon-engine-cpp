@@ -76,7 +76,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)external\glfw-3.2.1.bin.WIN64\include;C:\VulkanSDK\1.1.70.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)vulkan\src;$(SolutionDir)external\glfw-3.2.1.bin.WIN64\include;C:\VulkanSDK\1.1.70.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -85,7 +85,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)external\glfw-3.2.1.bin.WIN64\include;C:\VulkanSDK\1.1.70.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)vulkan\src;$(SolutionDir)external\glfw-3.2.1.bin.WIN64\include;C:\VulkanSDK\1.1.70.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -96,7 +96,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)external\glfw-3.2.1.bin.WIN64\include;C:\VulkanSDK\1.1.70.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)vulkan\src;$(SolutionDir)external\glfw-3.2.1.bin.WIN64\include;C:\VulkanSDK\1.1.70.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -111,7 +111,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)external\glfw-3.2.1.bin.WIN64\include;C:\VulkanSDK\1.1.70.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)vulkan\src;$(SolutionDir)external\glfw-3.2.1.bin.WIN64\include;C:\VulkanSDK\1.1.70.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -119,10 +119,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\context\VkContext.h" />
+    <ClInclude Include="src\context\deviceManager.h" />
+    <ClInclude Include="src\context\vkContext.h" />
+    <ClInclude Include="src\device\logicalDevice.h" />
+    <ClInclude Include="src\device\physicalDevice.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\context\VkContext.cpp" />
+    <ClCompile Include="src\context\deviceManager.cpp" />
+    <ClCompile Include="src\context\vkContext.cpp" />
+    <ClCompile Include="src\device\logicalDevice.cpp" />
+    <ClCompile Include="src\device\physicalDevice.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

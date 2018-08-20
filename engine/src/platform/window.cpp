@@ -1,9 +1,5 @@
 #include "window.h"
 
-Window::Window() {
-
-}
-
 void Window::create(int width, int height, const char* title) {
 
 	glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);

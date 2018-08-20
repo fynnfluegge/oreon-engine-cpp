@@ -1,19 +1,18 @@
-#include "CoreEngine.h"
+#include "coreEngine.h"
 
 using namespace std::chrono_literals;
 
 int CoreEngine::fps;
 
 CoreEngine::CoreEngine() : isRunning(false), frametime(1 / 2000.0f) {
-
-	window = Window();
 }
 
 void CoreEngine::init() {
 
 	glfwInit();
 	VkContext::getInstance().init();
-	window.create(800, 600, "OE3 Vulkan");
+	EngineContext::getInstance().getWindow().create(800, 600, "OE3 Vulkan");
+	renderEngine.init();
 }
 
 void CoreEngine::start() {
@@ -47,7 +46,7 @@ void CoreEngine::run() {
 			renderFrame = true;
 			unprocessedTime -= frametime;
 
-			if (window.isCloseRequested()) {
+			if (EngineContext::getInstance().getWindow().isCloseRequested()) {
 				stop();
 			}
 			
@@ -84,15 +83,17 @@ void CoreEngine::stop() {
 
 void CoreEngine::render() {
 
+	renderEngine.render();
 }
 
 void CoreEngine::update() {
 
 	glfwPollEvents();
+	renderEngine.update();
 }
 
 void CoreEngine::cleanUp() {
-	window.shutdown();
+	EngineContext::getInstance().getWindow().shutdown();
 }
 
 int CoreEngine::getFps() {

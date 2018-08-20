@@ -3,7 +3,9 @@
 #include <thread>
 #include <iostream>
 #include "platform\window.h"
-#include "context\VkContext.h"
+#include "context\vkContext.h"
+#include "context\engineContext.h"
+#include "renderEngine.h"
 
 class CoreEngine {
 
@@ -22,5 +24,5 @@ private:
 	static int fps;
 	double frametime;
 	bool isRunning;
-	Window window;
+	RenderEngine renderEngine;
 };
