@@ -5,6 +5,7 @@
 #include <GLFW/glfw3.h>
 #include "context/vkContext.h"
 #include "context/engineContext.h"
+#include "device\physicalDevice.h"
 
 class RenderEngine {
 

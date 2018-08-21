@@ -3,7 +3,19 @@
 #include <iostream>
 #include <vector>
 #include <vulkan\vulkan.h>
-#include "deviceSurfaceCapabilities.h"
+
+struct DeviceSurfaceProperties {
+	VkSurfaceCapabilitiesKHR surfaceCapabilities;
+	std::vector<VkSurfaceFormatKHR> formats;
+	std::vector<VkPresentModeKHR> presentModes;
+};
+
+struct QueueFamily {
+	int index;
+	int count;
+	int flags;
+	int presentFlag;
+};
 
 class PhysicalDevice {
 
@@ -15,6 +27,7 @@ private:
 	VkPhysicalDeviceProperties properties;
 	VkPhysicalDeviceFeatures features;
 	VkPhysicalDeviceMemoryProperties memoryProperties;
-	DeviceSurfaceCapabilities surfaceCapabilities;
+	DeviceSurfaceProperties deviceSurfaceProperties;
 	std::vector<const char*> supportedExtensionNames;
+	std::vector<QueueFamily> queueFamilies;
 };

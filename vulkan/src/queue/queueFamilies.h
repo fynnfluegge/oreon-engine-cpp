@@ -2,7 +2,13 @@
 
 #include <vector>
 #include <vulkan\vulkan.h>
-#include "queueFamily.h"
+
+struct QueueFamily {
+	int index;
+	int count;
+	int flags;
+	int presentFlag;
+};
 
 class QueueFamilies {
 

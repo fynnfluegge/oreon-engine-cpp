@@ -152,7 +152,7 @@ VKAPI_ATTR VkBool32 VKAPI_CALL VkContext::MyDebugReportCallback(
 	return VK_FALSE;
 }
 
-VkInstance& VkContext::getVkInstance() {
+const VkInstance& VkContext::getVkInstance(){
 	return vkInstance;
 }
 

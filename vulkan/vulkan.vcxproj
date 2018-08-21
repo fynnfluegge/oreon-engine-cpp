@@ -121,22 +121,15 @@
   <ItemGroup>
     <ClInclude Include="src\context\deviceManager.h" />
     <ClInclude Include="src\context\vkContext.h" />
-    <ClInclude Include="src\device\deviceBundle.h" />
-    <ClInclude Include="src\device\deviceSurfaceCapabilities.h" />
     <ClInclude Include="src\device\logicalDevice.h" />
     <ClInclude Include="src\device\physicalDevice.h" />
-    <ClInclude Include="src\queue\queueFamilies.h" />
-    <ClInclude Include="src\queue\queueFamily.h" />
+    <ClInclude Include="src\util\util.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\context\deviceManager.cpp" />
     <ClCompile Include="src\context\vkContext.cpp" />
-    <ClCompile Include="src\device\deviceBundle.cpp" />
-    <ClCompile Include="src\device\deviceSurfaceCapabilities.cpp" />
     <ClCompile Include="src\device\logicalDevice.cpp" />
     <ClCompile Include="src\device\physicalDevice.cpp" />
-    <ClCompile Include="src\queue\queueFamilies.cpp" />
-    <ClCompile Include="src\queue\queueFamily.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

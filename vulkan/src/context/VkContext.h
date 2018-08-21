@@ -11,7 +11,7 @@ class VkContext {
 public:
 	static VkContext& getInstance();
 	void init();
-	VkInstance& getVkInstance();
+	const VkInstance& getVkInstance();
 	DeviceManager& getDeviceManager();
 	std::vector<const char*> getEnabledLayers();
 

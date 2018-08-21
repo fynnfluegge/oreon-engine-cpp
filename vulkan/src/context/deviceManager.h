@@ -1,7 +1,8 @@
 #pragma once
 
 #include <unordered_map>
-#include "device\deviceBundle.h"
+//#include "device\logicalDevice.h"
+//#include "device\physicalDevice.h"
 
 enum class DeviceType {
 	MAJOR_GRAPHICS_DEVICE,
@@ -9,6 +10,11 @@ enum class DeviceType {
 	COMPUTING_DEVICE,
 	SLI_DISCRETE_DEVICE0,
 	SLI_DISCRETE_DEVICE1
+};
+
+struct DeviceBundle {
+	//PhysicalDevice physicalDevice;
+	//LogicalDevice logicalDevice;
 };
 
 class DeviceManager {
