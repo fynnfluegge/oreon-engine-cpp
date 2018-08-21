@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include <vector>
 #include <vulkan\vulkan.h>
 #include "deviceSurfaceCapabilities.h"
@@ -7,7 +8,7 @@
 class PhysicalDevice {
 
 public:
-	PhysicalDevice(long surface);
+	PhysicalDevice(const VkSurfaceKHR surface);
 
 private:
 	VkPhysicalDevice handle;

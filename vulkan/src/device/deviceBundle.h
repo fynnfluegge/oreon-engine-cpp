@@ -6,7 +6,6 @@
 class DeviceBundle {
 
 public:
-	DeviceBundle(PhysicalDevice physicalDevice, LogicalDevice logicalDevice);
 	PhysicalDevice getPhysicalDevice() const;
 	LogicalDevice getLogicalDevice() const;
 
