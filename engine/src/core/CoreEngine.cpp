@@ -65,10 +65,6 @@ void CoreEngine::run() {
 			this->render();
 			frames++;
 		}
-		//else
-		//{
-			//std::this_thread::sleep_for(1ms);
-		// }
 	}
 
 	cleanUp();

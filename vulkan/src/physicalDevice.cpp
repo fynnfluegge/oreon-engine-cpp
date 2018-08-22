@@ -1,5 +1,5 @@
 #include "physicalDevice.h"
-#include "VkContext.h"
+#include "vk_context.h"
 #include "util.h"
 
 using namespace vk;
@@ -72,14 +72,12 @@ PhysicalDevice::PhysicalDevice(const VkSurfaceKHR surface)
 	std::vector<VkQueueFamilyProperties> queueFamilyProperties(queueFamilyCount);
 	vkGetPhysicalDeviceQueueFamilyProperties(handle, &queueFamilyCount, queueFamilyProperties.data());
 
-	queueFamilies.resize(queueFamilyCount);
-
-	for (unsigned int i = 0; i < queueFamilyCount; i++) {
+	for (uint32_t i = 0; i < queueFamilyCount; i++) {
 		QueueFamily queueFamily;
 		queueFamily.index = i;
 		queueFamily.count = queueFamilyProperties.at(i).queueCount;
 		queueFamily.flags = queueFamilyProperties.at(i).queueFlags;
-		queueFamily.presentFlag = 0;
+		queueFamily.presentFlag = false;
 
 		if (surface != nullptr) {
 			VkBool32 supportPresent;
@@ -89,7 +87,7 @@ PhysicalDevice::PhysicalDevice(const VkSurfaceKHR surface)
 			}
 
 			if (supportPresent) {
-				queueFamily.presentFlag = 1;
+				queueFamily.presentFlag = true;
 			}
 		}
 
@@ -97,3 +95,98 @@ PhysicalDevice::PhysicalDevice(const VkSurfaceKHR surface)
 	}
 
 }
+
+const QueueFamily PhysicalDevice::getGraphicsQueueFamily()
+{
+	for (QueueFamily queueFamily : queueFamilies) {
+		if (queueFamily.flags & VK_QUEUE_GRAPHICS_BIT) {
+			return queueFamily;
+		}
+	}
+	return QueueFamily();
+}
+
+const QueueFamily PhysicalDevice::getComputeQueueFamily()
+{
+	for (QueueFamily queueFamily : queueFamilies) {
+		if (queueFamily.flags & VK_QUEUE_COMPUTE_BIT) {
+			return queueFamily;
+		}
+	}
+
+	return QueueFamily();
+}
+
+const QueueFamily PhysicalDevice::getTransferQueueFamily()
+{
+	for (QueueFamily queueFamily : queueFamilies) {
+		if (queueFamily.flags & VK_QUEUE_TRANSFER_BIT) {
+			return queueFamily;
+		}
+	}
+	return QueueFamily();
+}
+
+const QueueFamily PhysicalDevice::getSparseBindingQueueFamily()
+{
+	for (QueueFamily queueFamily : queueFamilies) {
+		if (queueFamily.flags & VK_QUEUE_SPARSE_BINDING_BIT) {
+			return queueFamily;
+		}
+	}
+	return QueueFamily();
+}
+
+const QueueFamily PhysicalDevice::getPresentationQueueFamily()
+{
+	for (QueueFamily queueFamily : queueFamilies) {
+		if (queueFamily.flags == VK_TRUE) {
+			return queueFamily;
+		}
+	}
+	return QueueFamily();
+}
+
+const QueueFamily PhysicalDevice::getGraphicsAndPresentationQueueFamily()
+{
+	for (QueueFamily queueFamily : queueFamilies) {
+
+		if (queueFamily.flags & VK_QUEUE_GRAPHICS_BIT
+			&& queueFamily.presentFlag == VK_TRUE) {
+			return queueFamily;
+		}
+	}
+	return QueueFamily();
+}
+
+const QueueFamily PhysicalDevice::getComputeExclusiveQueueFamily()
+{
+	for (QueueFamily queueFamily : queueFamilies) {
+		if (queueFamily.flags == VK_QUEUE_COMPUTE_BIT) {
+			return queueFamily;
+		}
+	}
+
+	return QueueFamily();
+}
+
+const QueueFamily PhysicalDevice::getTransferExclusiveQueueFamily()
+{
+	for (QueueFamily queueFamily : queueFamilies) {
+		if (queueFamily.flags == VK_QUEUE_TRANSFER_BIT) {
+			return queueFamily;
+		}
+	}
+	return QueueFamily();
+}
+
+const VkPhysicalDevice& PhysicalDevice::getHandle()
+{
+	return handle;
+}
+
+const VkPhysicalDeviceProperties& PhysicalDevice::getProperties()
+{
+	return properties;
+}
+

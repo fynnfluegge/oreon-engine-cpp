@@ -6,6 +6,7 @@ void RenderEngine::init() {
 		oe::Context::getInstance().getWindow().getHandle(), nullptr, &surface);
 
 	PhysicalDevice physicalDevice(surface);
+	LogicalDevice logicalDevice(physicalDevice);
 }
 
 void RenderEngine::update() {

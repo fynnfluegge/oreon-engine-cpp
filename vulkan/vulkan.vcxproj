@@ -122,12 +122,12 @@
     <ClInclude Include="src\logicalDevice.h" />
     <ClInclude Include="src\physicalDevice.h" />
     <ClInclude Include="src\util.h" />
-    <ClInclude Include="src\vkContext.h" />
+    <ClInclude Include="src\vk_context.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\logicalDevice.cpp" />
     <ClCompile Include="src\physicalDevice.cpp" />
-    <ClCompile Include="src\vkContext.cpp" />
+    <ClCompile Include="src\vk_context.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

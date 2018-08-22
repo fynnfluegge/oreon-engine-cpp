@@ -3,8 +3,8 @@
 #define GLFW_INCLUDE_VULKAN
 #include <iostream>
 #include <GLFW/glfw3.h>
-#include "vkContext.h"
-#include "context/oeContext.h"
+#include "vk_context.h"
+#include "context/oe_context.h"
 
 class RenderEngine {
 

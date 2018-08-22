@@ -29,9 +29,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\vkContext.h">
-      <Filter>Header Files\context</Filter>
-    </ClInclude>
     <ClInclude Include="src\logicalDevice.h">
       <Filter>Header Files\device</Filter>
     </ClInclude>
@@ -41,16 +38,19 @@
     <ClInclude Include="src\util.h">
       <Filter>Header Files\util</Filter>
     </ClInclude>
+    <ClInclude Include="src\vk_context.h">
+      <Filter>Header Files\context</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\vkContext.cpp">
-      <Filter>Source Files\context</Filter>
-    </ClCompile>
     <ClCompile Include="src\logicalDevice.cpp">
       <Filter>Source Files\device</Filter>
     </ClCompile>
     <ClCompile Include="src\physicalDevice.cpp">
       <Filter>Source Files\device</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vk_context.cpp">
+      <Filter>Source Files\context</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
