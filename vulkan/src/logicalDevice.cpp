@@ -1,5 +1,9 @@
 #include "logicalDevice.h"
 
+#include "util.h"
+
+using namespace vk;
+
 LogicalDevice::LogicalDevice(PhysicalDevice physicalDevice)
 {
 	int queueCeateInfoCount = 3;
@@ -75,6 +79,9 @@ LogicalDevice::LogicalDevice(PhysicalDevice physicalDevice)
 	deviceCreateInfo.pEnabledFeatures = &physicalDeviceFeatures;
 
 	VkResult vkResult = vkCreateDevice(physicalDevice.getHandle(), &deviceCreateInfo, NULL, &handle);
+	if (vkResult != VK_SUCCESS) {
+		std::cout << "Failed to create logical device: " << vk::translateVkResult(vkResult) << std::endl;
+	}
 }
 
 VkQueue LogicalDevice::getDeviceQueue(uint32_t queueFamilyIndex, uint32_t queueIndex)

@@ -9,7 +9,7 @@ PhysicalDevice::PhysicalDevice(const VkSurfaceKHR surface)
 	uint32_t deviceCount = 0;
 	VkResult vkResult = vkEnumeratePhysicalDevices(Context::getInstance().getVkInstance(), &deviceCount, nullptr);
 	if (vkResult != VK_SUCCESS) {
-		std::cout << "Failed to get number of physical devices: " << vk::translateVkResult(vkResult) << std::endl;
+		std::cout << "Failed to get number of physical devices: " << translateVkResult(vkResult) << std::endl;
 	}
 
 	if (deviceCount == 0) {
@@ -21,7 +21,7 @@ PhysicalDevice::PhysicalDevice(const VkSurfaceKHR surface)
 	std::vector<VkPhysicalDevice> devices(deviceCount);
 	vkResult = vkEnumeratePhysicalDevices(Context::getInstance().getVkInstance(), &deviceCount, devices.data());
 	if (vkResult != VK_SUCCESS) {
-		std::cout << "Failed to get physical devices: " << vk::translateVkResult(vkResult) << std::endl;
+		std::cout << "Failed to get physical devices: " << translateVkResult(vkResult) << std::endl;
 	}
 
 	handle = devices.at(0);
@@ -35,7 +35,7 @@ PhysicalDevice::PhysicalDevice(const VkSurfaceKHR surface)
 
 	vkResult = vkGetPhysicalDeviceSurfaceCapabilitiesKHR(handle, surface, &deviceSurfaceProperties.surfaceCapabilities);
 	if (vkResult != VK_SUCCESS) {
-		std::cout << "Failed to get physical device surface capabilities: " << vk::translateVkResult(vkResult) << std::endl;
+		std::cout << "Failed to get physical device surface capabilities: " << translateVkResult(vkResult) << std::endl;
 	}
 
 	uint32_t formatCount;
@@ -48,21 +48,21 @@ PhysicalDevice::PhysicalDevice(const VkSurfaceKHR surface)
 		deviceSurfaceProperties.formats.resize(formatCount);
 		vkResult = vkGetPhysicalDeviceSurfaceFormatsKHR(handle, surface, &formatCount, deviceSurfaceProperties.formats.data());
 		if (vkResult != VK_SUCCESS) {
-			std::cout << "Failed to query physical device surface formats: " << vk::translateVkResult(vkResult) << std::endl;
+			std::cout << "Failed to query physical device surface formats: " << translateVkResult(vkResult) << std::endl;
 		}
 	}
 
 	uint32_t presentModeCount;
 	vkResult = vkGetPhysicalDeviceSurfacePresentModesKHR(handle, surface, &presentModeCount, nullptr);
 	if (vkResult != VK_SUCCESS) {
-		std::cout << "Failed to get number of physical device surface presentation modes: " << vk::translateVkResult(vkResult) << std::endl;
+		std::cout << "Failed to get number of physical device surface presentation modes: " << translateVkResult(vkResult) << std::endl;
 	}
 
 	if (presentModeCount != 0) {
 		deviceSurfaceProperties.presentModes.resize(presentModeCount);
 		vkResult = vkGetPhysicalDeviceSurfacePresentModesKHR(handle, surface, &presentModeCount, deviceSurfaceProperties.presentModes.data());
 		if (vkResult != VK_SUCCESS) {
-			std::cout << "Failed to get physical device surface presentation modes: " << vk::translateVkResult(vkResult) << std::endl;
+			std::cout << "Failed to get physical device surface presentation modes: " << translateVkResult(vkResult) << std::endl;
 		}
 	}
 
@@ -83,7 +83,7 @@ PhysicalDevice::PhysicalDevice(const VkSurfaceKHR surface)
 			VkBool32 supportPresent;
 			vkResult = vkGetPhysicalDeviceSurfaceSupportKHR(handle, i, surface, &supportPresent);
 			if (vkResult != VK_SUCCESS) {
-				std::cout << "Failed to query physical device surface support: " << vk::translateVkResult(vkResult) << std::endl;
+				std::cout << "Failed to query physical device surface support: " << translateVkResult(vkResult) << std::endl;
 			}
 
 			if (supportPresent) {

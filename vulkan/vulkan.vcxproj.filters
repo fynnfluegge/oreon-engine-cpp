@@ -52,5 +52,8 @@
     <ClCompile Include="src\vk_context.cpp">
       <Filter>Source Files\context</Filter>
     </ClCompile>
+    <ClCompile Include="src\util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

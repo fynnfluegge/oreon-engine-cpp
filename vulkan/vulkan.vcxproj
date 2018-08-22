@@ -127,6 +127,7 @@
   <ItemGroup>
     <ClCompile Include="src\logicalDevice.cpp" />
     <ClCompile Include="src\physicalDevice.cpp" />
+    <ClCompile Include="src\util.cpp" />
     <ClCompile Include="src\vk_context.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
