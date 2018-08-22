@@ -3,8 +3,8 @@
 #include <thread>
 #include <iostream>
 #include "platform\window.h"
-#include "context\vkContext.h"
-#include "context\engineContext.h"
+#include "vkContext.h"
+#include "context\oeContext.h"
 #include "renderEngine.h"
 
 class CoreEngine {

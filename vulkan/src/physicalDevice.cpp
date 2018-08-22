@@ -1,0 +1,99 @@
+#include "physicalDevice.h"
+#include "VkContext.h"
+#include "util.h"
+
+using namespace vk;
+
+PhysicalDevice::PhysicalDevice(const VkSurfaceKHR surface)
+{
+	uint32_t deviceCount = 0;
+	VkResult vkResult = vkEnumeratePhysicalDevices(Context::getInstance().getVkInstance(), &deviceCount, nullptr);
+	if (vkResult != VK_SUCCESS) {
+		std::cout << "Failed to get number of physical devices: " << vk::translateVkResult(vkResult) << std::endl;
+	}
+
+	if (deviceCount == 0) {
+		throw std::runtime_error("failed to find GPUs with Vulkan support!");
+	}
+
+	std::cout << "Available Physical Devices: " << deviceCount << std::endl;
+
+	std::vector<VkPhysicalDevice> devices(deviceCount);
+	vkResult = vkEnumeratePhysicalDevices(Context::getInstance().getVkInstance(), &deviceCount, devices.data());
+	if (vkResult != VK_SUCCESS) {
+		std::cout << "Failed to get physical devices: " << vk::translateVkResult(vkResult) << std::endl;
+	}
+
+	handle = devices.at(0);
+
+	vkGetPhysicalDeviceProperties(handle, &properties);
+
+	std::cout << "Device: " << properties.deviceName << std::endl;
+
+	vkGetPhysicalDeviceFeatures(handle, &features);
+	vkGetPhysicalDeviceMemoryProperties(handle, &memoryProperties);
+
+	vkResult = vkGetPhysicalDeviceSurfaceCapabilitiesKHR(handle, surface, &deviceSurfaceProperties.surfaceCapabilities);
+	if (vkResult != VK_SUCCESS) {
+		std::cout << "Failed to get physical device surface capabilities: " << vk::translateVkResult(vkResult) << std::endl;
+	}
+
+	uint32_t formatCount;
+	vkResult = vkGetPhysicalDeviceSurfaceFormatsKHR(handle, surface, &formatCount, nullptr);
+	if (vkResult != VK_SUCCESS) {
+		std::cout << "Failed to query number of physical device surface formats: " << vk::translateVkResult(vkResult) << std::endl;
+	}
+
+	if (formatCount != 0) {
+		deviceSurfaceProperties.formats.resize(formatCount);
+		vkResult = vkGetPhysicalDeviceSurfaceFormatsKHR(handle, surface, &formatCount, deviceSurfaceProperties.formats.data());
+		if (vkResult != VK_SUCCESS) {
+			std::cout << "Failed to query physical device surface formats: " << vk::translateVkResult(vkResult) << std::endl;
+		}
+	}
+
+	uint32_t presentModeCount;
+	vkResult = vkGetPhysicalDeviceSurfacePresentModesKHR(handle, surface, &presentModeCount, nullptr);
+	if (vkResult != VK_SUCCESS) {
+		std::cout << "Failed to get number of physical device surface presentation modes: " << vk::translateVkResult(vkResult) << std::endl;
+	}
+
+	if (presentModeCount != 0) {
+		deviceSurfaceProperties.presentModes.resize(presentModeCount);
+		vkResult = vkGetPhysicalDeviceSurfacePresentModesKHR(handle, surface, &presentModeCount, deviceSurfaceProperties.presentModes.data());
+		if (vkResult != VK_SUCCESS) {
+			std::cout << "Failed to get physical device surface presentation modes: " << vk::translateVkResult(vkResult) << std::endl;
+		}
+	}
+
+	uint32_t queueFamilyCount = 0;
+	vkGetPhysicalDeviceQueueFamilyProperties(handle, &queueFamilyCount, nullptr);
+
+	std::vector<VkQueueFamilyProperties> queueFamilyProperties(queueFamilyCount);
+	vkGetPhysicalDeviceQueueFamilyProperties(handle, &queueFamilyCount, queueFamilyProperties.data());
+
+	queueFamilies.resize(queueFamilyCount);
+
+	for (unsigned int i = 0; i < queueFamilyCount; i++) {
+		QueueFamily queueFamily;
+		queueFamily.index = i;
+		queueFamily.count = queueFamilyProperties.at(i).queueCount;
+		queueFamily.flags = queueFamilyProperties.at(i).queueFlags;
+		queueFamily.presentFlag = 0;
+
+		if (surface != nullptr) {
+			VkBool32 supportPresent;
+			vkResult = vkGetPhysicalDeviceSurfaceSupportKHR(handle, i, surface, &supportPresent);
+			if (vkResult != VK_SUCCESS) {
+				std::cout << "Failed to query physical device surface support: " << vk::translateVkResult(vkResult) << std::endl;
+			}
+
+			if (supportPresent) {
+				queueFamily.presentFlag = 1;
+			}
+		}
+
+		queueFamilies.push_back(queueFamily);
+	}
+
+}

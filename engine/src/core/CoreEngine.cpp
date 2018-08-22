@@ -10,8 +10,8 @@ CoreEngine::CoreEngine() : isRunning(false), frametime(1 / 2000.0f) {
 void CoreEngine::init() {
 
 	glfwInit();
-	VkContext::getInstance().init();
-	EngineContext::getInstance().getWindow().create(800, 600, "OE3 Vulkan");
+	vk::Context::getInstance().init();
+	oe::Context::getInstance().getWindow().create(800, 600, "OE3 Vulkan");
 	renderEngine.init();
 }
 
@@ -35,7 +35,7 @@ void CoreEngine::run() {
 	{
 		bool renderFrame = false;
 		auto startTime = std::chrono::high_resolution_clock::now();
-		long passedTime = (startTime - lastTime).count();
+		long passedTime = static_cast<long>((startTime - lastTime).count());
 		lastTime = startTime;
 
 		unprocessedTime += passedTime / (double)1000000000;
@@ -46,7 +46,7 @@ void CoreEngine::run() {
 			renderFrame = true;
 			unprocessedTime -= frametime;
 
-			if (EngineContext::getInstance().getWindow().isCloseRequested()) {
+			if (oe::Context::getInstance().getWindow().isCloseRequested()) {
 				stop();
 			}
 			
@@ -93,7 +93,7 @@ void CoreEngine::update() {
 }
 
 void CoreEngine::cleanUp() {
-	EngineContext::getInstance().getWindow().shutdown();
+	oe::Context::getInstance().getWindow().shutdown();
 }
 
 int CoreEngine::getFps() {

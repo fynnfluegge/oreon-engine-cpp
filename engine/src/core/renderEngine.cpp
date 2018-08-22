@@ -2,8 +2,8 @@
 
 void RenderEngine::init() {
 
-	glfwCreateWindowSurface(VkContext::getInstance().getVkInstance(),
-		EngineContext::getInstance().getWindow().getHandle(), nullptr, &surface);
+	glfwCreateWindowSurface(vk::Context::getInstance().getVkInstance(),
+		oe::Context::getInstance().getWindow().getHandle(), nullptr, &surface);
 
 	PhysicalDevice physicalDevice(surface);
 }

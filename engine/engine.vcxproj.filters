@@ -42,7 +42,7 @@
     <ClInclude Include="src\core\renderEngine.h">
       <Filter>Header Files\core</Filter>
     </ClInclude>
-    <ClInclude Include="src\context\engineContext.h">
+    <ClInclude Include="src\context\oeContext.h">
       <Filter>Header Files\context</Filter>
     </ClInclude>
   </ItemGroup>
@@ -56,7 +56,7 @@
     <ClCompile Include="src\core\renderEngine.cpp">
       <Filter>Source Files\core</Filter>
     </ClCompile>
-    <ClCompile Include="src\context\engineContext.cpp">
+    <ClCompile Include="src\context\oeContext.cpp">
       <Filter>Source Files\context</Filter>
     </ClCompile>
   </ItemGroup>

@@ -27,38 +27,29 @@
     <Filter Include="Header Files\util">
       <UniqueIdentifier>{43301f1a-c450-42a0-8c37-4b605f233783}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\util">
-      <UniqueIdentifier>{255b9fb5-88a4-4a4d-81ad-d01a87c616a7}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\context\deviceManager.h">
+    <ClInclude Include="src\vkContext.h">
       <Filter>Header Files\context</Filter>
     </ClInclude>
-    <ClInclude Include="src\context\vkContext.h">
-      <Filter>Header Files\context</Filter>
-    </ClInclude>
-    <ClInclude Include="src\device\logicalDevice.h">
+    <ClInclude Include="src\logicalDevice.h">
       <Filter>Header Files\device</Filter>
     </ClInclude>
-    <ClInclude Include="src\device\physicalDevice.h">
+    <ClInclude Include="src\physicalDevice.h">
       <Filter>Header Files\device</Filter>
     </ClInclude>
-    <ClInclude Include="src\util\util.h">
+    <ClInclude Include="src\util.h">
       <Filter>Header Files\util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\context\deviceManager.cpp">
+    <ClCompile Include="src\vkContext.cpp">
       <Filter>Source Files\context</Filter>
     </ClCompile>
-    <ClCompile Include="src\context\vkContext.cpp">
-      <Filter>Source Files\context</Filter>
-    </ClCompile>
-    <ClCompile Include="src\device\logicalDevice.cpp">
+    <ClCompile Include="src\logicalDevice.cpp">
       <Filter>Source Files\device</Filter>
     </ClCompile>
-    <ClCompile Include="src\device\physicalDevice.cpp">
+    <ClCompile Include="src\physicalDevice.cpp">
       <Filter>Source Files\device</Filter>
     </ClCompile>
   </ItemGroup>

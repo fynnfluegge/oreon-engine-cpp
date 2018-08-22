@@ -119,17 +119,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\context\deviceManager.h" />
-    <ClInclude Include="src\context\vkContext.h" />
-    <ClInclude Include="src\device\logicalDevice.h" />
-    <ClInclude Include="src\device\physicalDevice.h" />
-    <ClInclude Include="src\util\util.h" />
+    <ClInclude Include="src\logicalDevice.h" />
+    <ClInclude Include="src\physicalDevice.h" />
+    <ClInclude Include="src\util.h" />
+    <ClInclude Include="src\vkContext.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\context\deviceManager.cpp" />
-    <ClCompile Include="src\context\vkContext.cpp" />
-    <ClCompile Include="src\device\logicalDevice.cpp" />
-    <ClCompile Include="src\device\physicalDevice.cpp" />
+    <ClCompile Include="src\logicalDevice.cpp" />
+    <ClCompile Include="src\physicalDevice.cpp" />
+    <ClCompile Include="src\vkContext.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -3,9 +3,8 @@
 #define GLFW_INCLUDE_VULKAN
 #include <iostream>
 #include <GLFW/glfw3.h>
-#include "context/vkContext.h"
-#include "context/engineContext.h"
-#include "device\physicalDevice.h"
+#include "vkContext.h"
+#include "context/oeContext.h"
 
 class RenderEngine {
 
