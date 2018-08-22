@@ -65,17 +65,18 @@ LogicalDevice::LogicalDevice(PhysicalDevice physicalDevice)
 	physicalDeviceFeatures.tessellationShader = VK_TRUE;
 	physicalDeviceFeatures.geometryShader = VK_TRUE;
 
-	uint32_t extension_count = 0;
-	const char *extension_names[64];
-	extension_count = 0;
-	extension_names[extension_count++] = VK_KHR_SWAPCHAIN_EXTENSION_NAME;
+	const char *extension_names = {VK_KHR_SWAPCHAIN_EXTENSION_NAME};
+
+	if (!physicalDevice.deviceExtensionSupported(extension_names)) {
+		std::cerr << "Extension " << extension_names << " not supported" << std::endl;
+	}
 
 	VkDeviceCreateInfo deviceCreateInfo = {};
 	deviceCreateInfo.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;
 	deviceCreateInfo.pNext = VK_NULL_HANDLE;
 	deviceCreateInfo.pQueueCreateInfos = queueCreateInfos;
 	deviceCreateInfo.queueCreateInfoCount = queueCeateInfoCount;
-	deviceCreateInfo.ppEnabledExtensionNames = extension_names;
+	deviceCreateInfo.ppEnabledExtensionNames = &extension_names;
 	deviceCreateInfo.pEnabledFeatures = &physicalDeviceFeatures;
 
 	VkResult vkResult = vkCreateDevice(physicalDevice.getHandle(), &deviceCreateInfo, NULL, &handle);

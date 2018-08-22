@@ -32,6 +32,7 @@ public:
 	const QueueFamily getGraphicsAndPresentationQueueFamily();
 	const QueueFamily getComputeExclusiveQueueFamily();
 	const QueueFamily getTransferExclusiveQueueFamily();
+	bool deviceExtensionSupported(const char* extension);
 
 private:
 	VkPhysicalDevice handle;
@@ -39,6 +40,6 @@ private:
 	VkPhysicalDeviceFeatures features;
 	VkPhysicalDeviceMemoryProperties memoryProperties;
 	DeviceSurfaceProperties deviceSurfaceProperties;
-	std::vector<const char*> supportedExtensionNames;
+	std::vector<VkExtensionProperties> supportedExtensions;
 	std::vector<QueueFamily> queueFamilies;
 };

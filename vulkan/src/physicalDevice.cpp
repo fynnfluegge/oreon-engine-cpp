@@ -33,6 +33,17 @@ PhysicalDevice::PhysicalDevice(const VkSurfaceKHR surface)
 	vkGetPhysicalDeviceFeatures(handle, &features);
 	vkGetPhysicalDeviceMemoryProperties(handle, &memoryProperties);
 
+	uint32_t extensionCount;
+	vkResult = vkEnumerateDeviceExtensionProperties(handle, nullptr, &extensionCount, nullptr);
+	if (vkResult != VK_SUCCESS) {
+		std::cout << "Failed to get number of supported device extensions: " << translateVkResult(vkResult) << std::endl;
+	}
+	supportedExtensions.resize(extensionCount);
+	vkResult = vkEnumerateDeviceExtensionProperties(handle, nullptr, &extensionCount, supportedExtensions.data());
+	if (vkResult != VK_SUCCESS) {
+		std::cout << "Failed to get supported device extensions: " << translateVkResult(vkResult) << std::endl;
+	}
+
 	vkResult = vkGetPhysicalDeviceSurfaceCapabilitiesKHR(handle, surface, &deviceSurfaceProperties.surfaceCapabilities);
 	if (vkResult != VK_SUCCESS) {
 		std::cout << "Failed to get physical device surface capabilities: " << translateVkResult(vkResult) << std::endl;
@@ -178,6 +189,16 @@ const QueueFamily PhysicalDevice::getTransferExclusiveQueueFamily()
 		}
 	}
 	return QueueFamily();
+}
+
+bool PhysicalDevice::deviceExtensionSupported(const char* extension)
+{
+	for (VkExtensionProperties supportedExtension : supportedExtensions) {
+		if (strcmp(supportedExtension.extensionName, extension) == 0) {
+			return true;
+		}
+	}
+	return false;
 }
 
 const VkPhysicalDevice& PhysicalDevice::getHandle()
