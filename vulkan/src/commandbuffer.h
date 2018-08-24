@@ -32,8 +32,21 @@ namespace vk {
 		void dispatchCmd(uint32_t groupCountX, uint32_t groupCountY, uint32_t groupCountZ);
 		void copyBufferCmd(VkBuffer srcBuffer, VkBuffer dstBuffer, uint64_t srcOffset, uint64_t dstOffset, uint64_t size);
 		void copyBufferToImageCmd(VkBuffer srcBuffer, VkImage dstImage, uint32_t width, uint32_t height, uint32_t depth);
+		void pipelineImageMemoryBarrierCmd(VkImage image, VkImageLayout oldLayout, VkImageLayout newLayout,
+			VkAccessFlags srcAccessMask, VkAccessFlags dstAccessMask, VkPipelineStageFlags srcStageMask,
+			VkPipelineStageFlags dstStageMask, int baseMipLevel, int mipLevelCount);
+		void pipelineImageMemoryBarrierCmd(VkImage image, VkPipelineStageFlags srcStageMask,
+			VkPipelineStageFlags dstStageMask, VkImageMemoryBarrier& barrier);
+		void pipelineMemoryBarrierCmd(VkAccessFlags srcAccessMask, VkAccessFlags dstAccessMask,
+			VkPipelineStageFlags srcStageMask, VkPipelineStageFlags dstStageMask);
+		void pipelineBarrierCmd(VkPipelineStageFlags srcStageMask, VkPipelineStageFlags dstStageMask);
+		void recordSecondaryCmdBuffers(uint32_t commandBufferCount, const VkCommandBuffer* pCommandBuffers);
+		void reset();
+		void destroy();
 	private:
 		VkCommandBuffer handle;
+		VkCommandPool commandPool;
+		VkDevice device;
 		void beginRenderPassCmd(VkRenderPass renderPass, VkFramebuffer frameBuffer,
 			uint32_t width, uint32_t height, VkClearValue* clearValues, VkSubpassContents subpassContentsFlag);
 		void bindDescriptorSetsCmd(VkPipelineLayout pipelinyLayout, const VkDescriptorSet* pDescriptorSets,

@@ -5,6 +5,9 @@ using namespace vk;
 
 CommandBuffer::CommandBuffer(VkDevice device, VkCommandPool commandPool, VkCommandBufferLevel level)
 {
+	this->device = device;
+	this->commandPool = commandPool;
+
 	VkCommandBufferAllocateInfo commandbufferAllocateInfo = {};
 	commandbufferAllocateInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO;
 	commandbufferAllocateInfo.commandPool = commandPool;
@@ -217,6 +220,69 @@ void vk::CommandBuffer::copyBufferToImageCmd(VkBuffer srcBuffer, VkImage dstImag
 
 	vkCmdCopyBufferToImage(handle, srcBuffer, dstImage,
 		VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, 1, &copyRegion);
+}
+
+void vk::CommandBuffer::pipelineImageMemoryBarrierCmd(VkImage image, VkImageLayout oldLayout, VkImageLayout newLayout,
+	VkAccessFlags srcAccessMask, VkAccessFlags dstAccessMask, VkPipelineStageFlags srcStageMask,
+	VkPipelineStageFlags dstStageMask, int baseMipLevel, int mipLevelCount)
+{
+	VkImageMemoryBarrier barrier = {};
+	barrier.sType = VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER;
+	barrier.oldLayout = oldLayout;
+	barrier.newLayout = newLayout;
+	barrier.srcQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
+	barrier.dstQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
+	barrier.image = image;
+	barrier.srcAccessMask = srcAccessMask;
+	barrier.dstAccessMask = dstAccessMask;
+
+	barrier.subresourceRange.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
+	barrier.subresourceRange.baseMipLevel = baseMipLevel;
+	barrier.subresourceRange.levelCount = mipLevelCount;
+	barrier.subresourceRange.baseArrayLayer = 0;
+	barrier.subresourceRange.layerCount = 1;
+
+	vkCmdPipelineBarrier(handle, srcStageMask, dstStageMask,
+		VK_DEPENDENCY_BY_REGION_BIT, 0, nullptr, 0, nullptr, 1, &barrier);
+}
+
+void vk::CommandBuffer::pipelineImageMemoryBarrierCmd(VkImage image, VkPipelineStageFlags srcStageMask,
+	VkPipelineStageFlags dstStageMask, VkImageMemoryBarrier& barrier)
+{
+	vkCmdPipelineBarrier(handle, srcStageMask, dstStageMask,
+		VK_DEPENDENCY_BY_REGION_BIT, 0, nullptr, 0, nullptr, 1, &barrier);
+}
+
+void vk::CommandBuffer::pipelineMemoryBarrierCmd(VkAccessFlags srcAccessMask, VkAccessFlags dstAccessMask, VkPipelineStageFlags srcStageMask, VkPipelineStageFlags dstStageMask)
+{
+	VkMemoryBarrier barrier = {};
+	barrier.sType = VK_STRUCTURE_TYPE_MEMORY_BARRIER;
+	barrier.srcAccessMask = srcAccessMask;
+	barrier.dstAccessMask = dstAccessMask;
+
+	vkCmdPipelineBarrier(handle, srcStageMask, dstStageMask,
+		VK_DEPENDENCY_BY_REGION_BIT, 1, &barrier, 0, nullptr, 0, nullptr);
+}
+
+void vk::CommandBuffer::pipelineBarrierCmd(VkPipelineStageFlags srcStageMask, VkPipelineStageFlags dstStageMask)
+{
+	vkCmdPipelineBarrier(handle, srcStageMask, dstStageMask,
+		VK_DEPENDENCY_BY_REGION_BIT, 0, nullptr, 0, nullptr, 0, nullptr);
+}
+
+void vk::CommandBuffer::recordSecondaryCmdBuffers(uint32_t commandBufferCount, const VkCommandBuffer * pCommandBuffers)
+{
+	vkCmdExecuteCommands(handle, commandBufferCount, pCommandBuffers);
+}
+
+void vk::CommandBuffer::reset()
+{
+	vkResetCommandBuffer(handle, VK_COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT);
+}
+
+void vk::CommandBuffer::destroy()
+{
+	vkFreeCommandBuffers(device, commandPool, 1, &handle);
 }
 
 void vk::CommandBuffer::beginRenderPassCmd(VkRenderPass renderPass, VkFramebuffer frameBuffer,
