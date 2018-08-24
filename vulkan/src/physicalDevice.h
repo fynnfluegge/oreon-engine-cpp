@@ -32,7 +32,7 @@ public:
 	const QueueFamily getGraphicsAndPresentationQueueFamily();
 	const QueueFamily getComputeExclusiveQueueFamily();
 	const QueueFamily getTransferExclusiveQueueFamily();
-	bool deviceExtensionSupported(const char* extension);
+	bool isExtensionSupported(const char* extension);
 
 private:
 	VkPhysicalDevice handle;

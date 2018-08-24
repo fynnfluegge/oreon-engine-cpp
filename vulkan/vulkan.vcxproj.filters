@@ -27,6 +27,15 @@
     <Filter Include="Header Files\util">
       <UniqueIdentifier>{43301f1a-c450-42a0-8c37-4b605f233783}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\util">
+      <UniqueIdentifier>{7fa897aa-a401-48ae-ad6e-4316c067a63d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\command">
+      <UniqueIdentifier>{103c3c83-848c-4f45-8748-40f8deb4326b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\command">
+      <UniqueIdentifier>{46fdf9ef-4960-4ebf-b76a-af2ae24bd51c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\logicalDevice.h">
@@ -41,6 +50,9 @@
     <ClInclude Include="src\vk_context.h">
       <Filter>Header Files\context</Filter>
     </ClInclude>
+    <ClInclude Include="src\commandbuffer.h">
+      <Filter>Header Files\command</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\logicalDevice.cpp">
@@ -53,7 +65,10 @@
       <Filter>Source Files\context</Filter>
     </ClCompile>
     <ClCompile Include="src\util.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\commandbuffer.cpp">
+      <Filter>Source Files\command</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -119,12 +119,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\commandbuffer.h" />
     <ClInclude Include="src\logicalDevice.h" />
     <ClInclude Include="src\physicalDevice.h" />
     <ClInclude Include="src\util.h" />
     <ClInclude Include="src\vk_context.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\commandbuffer.cpp" />
     <ClCompile Include="src\logicalDevice.cpp" />
     <ClCompile Include="src\physicalDevice.cpp" />
     <ClCompile Include="src\util.cpp" />

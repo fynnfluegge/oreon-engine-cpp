@@ -191,7 +191,7 @@ const QueueFamily PhysicalDevice::getTransferExclusiveQueueFamily()
 	return QueueFamily();
 }
 
-bool PhysicalDevice::deviceExtensionSupported(const char* extension)
+bool PhysicalDevice::isExtensionSupported(const char* extension)
 {
 	for (VkExtensionProperties supportedExtension : supportedExtensions) {
 		if (strcmp(supportedExtension.extensionName, extension) == 0) {

@@ -67,7 +67,7 @@ LogicalDevice::LogicalDevice(PhysicalDevice physicalDevice)
 
 	const char *extension_names = {VK_KHR_SWAPCHAIN_EXTENSION_NAME};
 
-	if (!physicalDevice.deviceExtensionSupported(extension_names)) {
+	if (!physicalDevice.isExtensionSupported(extension_names)) {
 		std::cerr << "Extension " << extension_names << " not supported" << std::endl;
 	}
 

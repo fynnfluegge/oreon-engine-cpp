@@ -11,11 +11,13 @@ using namespace vk;
 Context::Context() {}
 
 Context Context::instance;
-Context& Context::getInstance() {
+Context& Context::getInstance()
+{
 	return instance;
 }
 
-void Context::init() {
+void Context::init()
+{
 
 	if (!glfwVulkanSupported()) {
 		std::cout << "ERROR: Vulkan not supported" << std::endl;
@@ -56,7 +58,8 @@ void Context::init() {
 	setupDebugCallback();
 }
 
-bool Context::checkValidationLayerSupport() {
+bool Context::checkValidationLayerSupport()
+{
 	uint32_t layerCount;
 	vkEnumerateInstanceLayerProperties(&layerCount, nullptr);
 	std::vector<VkLayerProperties> availableLayers(layerCount);
@@ -77,7 +80,8 @@ bool Context::checkValidationLayerSupport() {
 	return true;
 }
 
-std::vector<const char*> Context::getRequiredExtensions() {
+std::vector<const char*> Context::getRequiredExtensions()
+{
 	std::vector<const char*> extensions;
 	unsigned int glfwExtensionCount = 0;
 	const char** glfwExtensions;
@@ -92,8 +96,8 @@ std::vector<const char*> Context::getRequiredExtensions() {
 	return extensions;
 }
 
-bool Context::checkExtensionSupport(std::vector<const char*> enabledExtensions) {
-
+bool Context::checkExtensionSupport(std::vector<const char*> enabledExtensions)
+{
 	uint32_t extensionCount = 0;
 	vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, nullptr);
 	std::vector<VkExtensionProperties> availableExtensions(extensionCount);
@@ -114,7 +118,8 @@ bool Context::checkExtensionSupport(std::vector<const char*> enabledExtensions) 
 	return true;
 }
 
-void Context::setupDebugCallback() {
+void Context::setupDebugCallback()
+{
 	if (!enableValidationLayers) return;
 
 	VkDebugReportCallbackCreateInfoEXT createInfo = {};
@@ -129,7 +134,8 @@ void Context::setupDebugCallback() {
 }
 
 VkResult Context::CreateDebugReportCallbackEXT(VkInstance instance, const VkDebugReportCallbackCreateInfoEXT* pCreateInfo,
-		VkDebugReportCallbackEXT* pCallback){
+		VkDebugReportCallbackEXT* pCallback)
+{
 	auto func = (PFN_vkCreateDebugReportCallbackEXT)vkGetInstanceProcAddr(instance, "vkCreateDebugReportCallbackEXT");
 	if (func != nullptr) {
 		return func(instance, pCreateInfo, nullptr, pCallback);
@@ -153,10 +159,18 @@ VKAPI_ATTR VkBool32 VKAPI_CALL Context::MyDebugReportCallback(
 	return VK_FALSE;
 }
 
-const VkInstance& Context::getVkInstance(){
+const VkInstance& Context::getVkInstance()
+{
 	return vkInstance;
 }
 
-std::vector<const char*> Context::getEnabledLayers() {
+std::vector<const char*> Context::getEnabledLayers()
+{
 	return enabledLayers;
+}
+
+void vk::Context::addDevice(DeviceType devicetype, PhysicalDevice physicalDevice, LogicalDevice logicalDevice)
+{
+	DeviceBundle deviceBundle(physicalDevice, logicalDevice);
+	//devices.
 }

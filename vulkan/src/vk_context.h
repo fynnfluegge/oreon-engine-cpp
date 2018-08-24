@@ -21,6 +21,7 @@ namespace vk {
 	struct DeviceBundle {
 		PhysicalDevice physicalDevice;
 		LogicalDevice logicalDevice;
+		DeviceBundle(PhysicalDevice x, LogicalDevice y) : physicalDevice(x), logicalDevice(y) {};
 	};
 
 	class Context {
@@ -30,6 +31,8 @@ namespace vk {
 		void init();
 		const VkInstance& getVkInstance();
 		std::vector<const char*> getEnabledLayers();
+		void addDevice(DeviceType devicetype, PhysicalDevice physicalDevice, LogicalDevice logicalDevice);
+		DeviceBundle getDevice(DeviceType deviceType);
 
 	private:
 		Context();
