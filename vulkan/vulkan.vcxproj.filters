@@ -36,6 +36,18 @@
     <Filter Include="Source Files\command">
       <UniqueIdentifier>{46fdf9ef-4960-4ebf-b76a-af2ae24bd51c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\descriptor">
+      <UniqueIdentifier>{6a47b4d1-576b-4deb-8276-e7dc0d4cf45c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\descriptor">
+      <UniqueIdentifier>{a206c2aa-b86c-47b5-aeb1-07e0e4223c79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\synchronization">
+      <UniqueIdentifier>{e291e089-0678-442c-a5d4-38e13367a9d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\synchronization">
+      <UniqueIdentifier>{823da4cd-c422-46bf-bdc0-db6abf4961f1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\logicalDevice.h">
@@ -53,6 +65,27 @@
     <ClInclude Include="src\commandbuffer.h">
       <Filter>Header Files\command</Filter>
     </ClInclude>
+    <ClInclude Include="src\submit_info.h">
+      <Filter>Header Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="src\descriptor_set.h">
+      <Filter>Header Files\descriptor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\descriptor_set_layout.h">
+      <Filter>Header Files\descriptor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\descriptor_pool.h">
+      <Filter>Header Files\descriptor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\command_pool.h">
+      <Filter>Header Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fence.h">
+      <Filter>Header Files\synchronization</Filter>
+    </ClInclude>
+    <ClInclude Include="src\semaphore.h">
+      <Filter>Header Files\synchronization</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\logicalDevice.cpp">
@@ -69,6 +102,27 @@
     </ClCompile>
     <ClCompile Include="src\commandbuffer.cpp">
       <Filter>Source Files\command</Filter>
+    </ClCompile>
+    <ClCompile Include="src\submit_info.cpp">
+      <Filter>Source Files\command</Filter>
+    </ClCompile>
+    <ClCompile Include="src\descriptor_set.cpp">
+      <Filter>Source Files\descriptor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\descriptor_set_layout.cpp">
+      <Filter>Source Files\descriptor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\descriptor_pool.cpp">
+      <Filter>Source Files\descriptor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\command_pool.cpp">
+      <Filter>Source Files\command</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fence.cpp">
+      <Filter>Source Files\synchronization</Filter>
+    </ClCompile>
+    <ClCompile Include="src\semaphore.cpp">
+      <Filter>Source Files\synchronization</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

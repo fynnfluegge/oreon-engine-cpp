@@ -169,7 +169,7 @@ std::vector<const char*> Context::getEnabledLayers()
 	return enabledLayers;
 }
 
-void vk::Context::addDevice(DeviceType devicetype, PhysicalDevice physicalDevice, LogicalDevice logicalDevice)
+void Context::addDevice(DeviceType devicetype, PhysicalDevice physicalDevice, LogicalDevice logicalDevice)
 {
 	DeviceBundle deviceBundle(physicalDevice, logicalDevice);
 	//devices.

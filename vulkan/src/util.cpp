@@ -55,3 +55,10 @@ std::string vk::translateVkResult(VkResult vkResult) {
 		return "VkResullt unknown";
 	}
 }
+
+void vk::evaluateVkResult(VkResult vkResult, std::string error_message)
+{
+	if (vkResult != VK_SUCCESS) {
+		std::cout << error_message << ": " << translateVkResult(vkResult) << std::endl;
+	}
+}

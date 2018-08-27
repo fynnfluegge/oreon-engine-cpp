@@ -36,28 +36,28 @@
     <ClInclude Include="src\platform\window.h">
       <Filter>Header Files\platform</Filter>
     </ClInclude>
-    <ClInclude Include="src\core\coreEngine.h">
-      <Filter>Header Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\core\renderEngine.h">
-      <Filter>Header Files\core</Filter>
-    </ClInclude>
     <ClInclude Include="src\context\oe_context.h">
       <Filter>Header Files\context</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\core_engine.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\render_engine.h">
+      <Filter>Header Files\core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\platform\window.cpp">
       <Filter>Source Files\platform</Filter>
     </ClCompile>
-    <ClCompile Include="src\core\coreEngine.cpp">
-      <Filter>Source Files\core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\core\renderEngine.cpp">
-      <Filter>Source Files\core</Filter>
-    </ClCompile>
     <ClCompile Include="src\context\oe_context.cpp">
       <Filter>Source Files\context</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\core_engine.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\render_engine.cpp">
+      <Filter>Source Files\core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

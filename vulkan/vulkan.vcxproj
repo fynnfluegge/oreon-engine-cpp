@@ -120,15 +120,29 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\commandbuffer.h" />
+    <ClInclude Include="src\command_pool.h" />
+    <ClInclude Include="src\descriptor_pool.h" />
+    <ClInclude Include="src\descriptor_set.h" />
+    <ClInclude Include="src\descriptor_set_layout.h" />
+    <ClInclude Include="src\fence.h" />
     <ClInclude Include="src\logicalDevice.h" />
     <ClInclude Include="src\physicalDevice.h" />
+    <ClInclude Include="src\semaphore.h" />
+    <ClInclude Include="src\submit_info.h" />
     <ClInclude Include="src\util.h" />
     <ClInclude Include="src\vk_context.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\commandbuffer.cpp" />
+    <ClCompile Include="src\command_pool.cpp" />
+    <ClCompile Include="src\descriptor_pool.cpp" />
+    <ClCompile Include="src\descriptor_set.cpp" />
+    <ClCompile Include="src\descriptor_set_layout.cpp" />
+    <ClCompile Include="src\fence.cpp" />
     <ClCompile Include="src\logicalDevice.cpp" />
     <ClCompile Include="src\physicalDevice.cpp" />
+    <ClCompile Include="src\semaphore.cpp" />
+    <ClCompile Include="src\submit_info.cpp" />
     <ClCompile Include="src\util.cpp" />
     <ClCompile Include="src\vk_context.cpp" />
   </ItemGroup>

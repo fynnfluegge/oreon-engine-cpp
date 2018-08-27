@@ -45,8 +45,8 @@ namespace vk {
 		void destroy();
 	private:
 		VkCommandBuffer handle;
-		VkCommandPool commandPool;
-		VkDevice device;
+		const VkCommandPool commandPool;
+		const VkDevice device;
 		void beginRenderPassCmd(VkRenderPass renderPass, VkFramebuffer frameBuffer,
 			uint32_t width, uint32_t height, VkClearValue* clearValues, VkSubpassContents subpassContentsFlag);
 		void bindDescriptorSetsCmd(VkPipelineLayout pipelinyLayout, const VkDescriptorSet* pDescriptorSets,

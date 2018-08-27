@@ -11,7 +11,7 @@ struct DeviceSurfaceProperties {
 };
 
 struct QueueFamily {
-	int index;
+	uint32_t index;
 	uint32_t count;
 	uint32_t flags;
 	VkBool32 presentFlag;

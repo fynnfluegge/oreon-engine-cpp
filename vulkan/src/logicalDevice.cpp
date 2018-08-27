@@ -79,10 +79,8 @@ LogicalDevice::LogicalDevice(PhysicalDevice physicalDevice)
 	deviceCreateInfo.ppEnabledExtensionNames = &extension_names;
 	deviceCreateInfo.pEnabledFeatures = &physicalDeviceFeatures;
 
-	VkResult vkResult = vkCreateDevice(physicalDevice.getHandle(), &deviceCreateInfo, NULL, &handle);
-	if (vkResult != VK_SUCCESS) {
-		std::cout << "Failed to create logical device: " << vk::translateVkResult(vkResult) << std::endl;
-	}
+	evaluateVkResult(vkCreateDevice(physicalDevice.getHandle(), &deviceCreateInfo, NULL, &handle),
+		"Failed to create logical device");
 }
 
 VkQueue LogicalDevice::getDeviceQueue(uint32_t queueFamilyIndex, uint32_t queueIndex)
