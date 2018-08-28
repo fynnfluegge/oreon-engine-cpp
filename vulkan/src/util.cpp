@@ -59,6 +59,39 @@ std::string vk::translateVkResult(VkResult vkResult) {
 void vk::evaluateVkResult(VkResult vkResult, std::string error_message)
 {
 	if (vkResult != VK_SUCCESS) {
-		std::cout << error_message << ": " << translateVkResult(vkResult) << std::endl;
+		std::cerr << error_message << ": " << translateVkResult(vkResult) << std::endl;
 	}
+}
+
+VkSampleCountFlagBits vk::getSampleCountBit(uint32_t samples)
+{
+	VkSampleCountFlagBits sampleCountBit;
+
+	switch (samples) {
+		case 1: sampleCountBit = VK_SAMPLE_COUNT_1_BIT; break;
+		case 2: sampleCountBit = VK_SAMPLE_COUNT_2_BIT; break;
+		case 4: sampleCountBit = VK_SAMPLE_COUNT_4_BIT; break;
+		case 8: sampleCountBit = VK_SAMPLE_COUNT_8_BIT; break;
+		case 16: sampleCountBit = VK_SAMPLE_COUNT_16_BIT; break;
+		case 32: sampleCountBit = VK_SAMPLE_COUNT_32_BIT; break;
+		case 64: sampleCountBit = VK_SAMPLE_COUNT_64_BIT; break;
+		default: std::cerr << "Multisamplecount: " << samples << ". Allowed numbers [1,2,4,8,16,32,64]" << std::endl;
+	}
+
+	return sampleCountBit;
+}
+
+uint32_t vk::getMemoryTypeIndex(VkPhysicalDeviceMemoryProperties memoryProperties,
+	uint32_t memoryTypeBits, VkMemoryPropertyFlags properties)
+{
+	for (uint32_t i = 0; i < memoryProperties.memoryTypeCount; i++) {
+		if ((memoryTypeBits & (1 << i)) != 0 &&
+			(memoryProperties.memoryTypes[i].propertyFlags & properties) == properties) {
+			return i;
+		}
+	}
+
+	std::cerr << "No memory Type found" << std::endl;
+
+	return -1;
 }

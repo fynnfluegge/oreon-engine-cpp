@@ -76,7 +76,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)vulkan\src;$(SolutionDir)external\glfw-3.2.1.bin.WIN64\include;C:\VulkanSDK\1.1.73.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)external\stb;$(SolutionDir)vulkan\src;$(SolutionDir)external\glfw-3.2.1.bin.WIN64\include;C:\VulkanSDK\1.1.73.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -85,7 +85,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)vulkan\src;$(SolutionDir)external\glfw-3.2.1.bin.WIN64\include;C:\VulkanSDK\1.1.70.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)external\stb;$(SolutionDir)vulkan\src;$(SolutionDir)external\glfw-3.2.1.bin.WIN64\include;C:\VulkanSDK\1.1.70.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -96,7 +96,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)vulkan\src;$(SolutionDir)external\glfw-3.2.1.bin.WIN64\include;C:\VulkanSDK\1.1.70.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)external\stb;$(SolutionDir)vulkan\src;$(SolutionDir)external\glfw-3.2.1.bin.WIN64\include;C:\VulkanSDK\1.1.70.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -111,7 +111,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)vulkan\src;$(SolutionDir)external\glfw-3.2.1.bin.WIN64\include;C:\VulkanSDK\1.1.70.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)external\stb;$(SolutionDir)vulkan\src;$(SolutionDir)external\glfw-3.2.1.bin.WIN64\include;C:\VulkanSDK\1.1.70.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -125,8 +125,12 @@
     <ClInclude Include="src\descriptor_set.h" />
     <ClInclude Include="src\descriptor_set_layout.h" />
     <ClInclude Include="src\fence.h" />
+    <ClInclude Include="src\framebuffer.h" />
+    <ClInclude Include="src\Image.h" />
+    <ClInclude Include="src\image_view.h" />
     <ClInclude Include="src\logicalDevice.h" />
     <ClInclude Include="src\physicalDevice.h" />
+    <ClInclude Include="src\sampler.h" />
     <ClInclude Include="src\semaphore.h" />
     <ClInclude Include="src\submit_info.h" />
     <ClInclude Include="src\util.h" />
@@ -139,8 +143,12 @@
     <ClCompile Include="src\descriptor_set.cpp" />
     <ClCompile Include="src\descriptor_set_layout.cpp" />
     <ClCompile Include="src\fence.cpp" />
+    <ClCompile Include="src\framebuffer.cpp" />
+    <ClCompile Include="src\image.cpp" />
+    <ClCompile Include="src\image_view.cpp" />
     <ClCompile Include="src\logicalDevice.cpp" />
     <ClCompile Include="src\physicalDevice.cpp" />
+    <ClCompile Include="src\sampler.cpp" />
     <ClCompile Include="src\semaphore.cpp" />
     <ClCompile Include="src\submit_info.cpp" />
     <ClCompile Include="src\util.cpp" />

@@ -48,6 +48,18 @@
     <Filter Include="Source Files\synchronization">
       <UniqueIdentifier>{823da4cd-c422-46bf-bdc0-db6abf4961f1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\framebuffer">
+      <UniqueIdentifier>{d9fcbc8e-dc48-43d8-97c3-8eba3aeb28d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\framebuffer">
+      <UniqueIdentifier>{466b7263-6382-4298-a67a-c5959615b8fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\image">
+      <UniqueIdentifier>{a9353b5b-4e01-4fa2-9888-22a92094f75a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\image">
+      <UniqueIdentifier>{23a323ad-fc69-4f69-b728-53bff9d4401c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\logicalDevice.h">
@@ -86,6 +98,18 @@
     <ClInclude Include="src\semaphore.h">
       <Filter>Header Files\synchronization</Filter>
     </ClInclude>
+    <ClInclude Include="src\framebuffer.h">
+      <Filter>Header Files\framebuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Image.h">
+      <Filter>Header Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="src\image_view.h">
+      <Filter>Header Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sampler.h">
+      <Filter>Header Files\image</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\logicalDevice.cpp">
@@ -123,6 +147,18 @@
     </ClCompile>
     <ClCompile Include="src\semaphore.cpp">
       <Filter>Source Files\synchronization</Filter>
+    </ClCompile>
+    <ClCompile Include="src\framebuffer.cpp">
+      <Filter>Source Files\framebuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\image.cpp">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="src\image_view.cpp">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sampler.cpp">
+      <Filter>Source Files\image</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
