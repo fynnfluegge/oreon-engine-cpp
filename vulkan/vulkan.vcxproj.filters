@@ -60,6 +60,18 @@
     <Filter Include="Source Files\image">
       <UniqueIdentifier>{23a323ad-fc69-4f69-b728-53bff9d4401c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\memory">
+      <UniqueIdentifier>{371768f3-8ecc-487f-870e-4debba4d4ea8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\memory">
+      <UniqueIdentifier>{b58850d0-ae33-4e54-a2e2-16fb5f30f367}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\pipeline">
+      <UniqueIdentifier>{b34d26c0-ecad-4b50-ab5d-d0dc2f2d3797}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\pipeline">
+      <UniqueIdentifier>{e9daf448-6bd2-41cc-a13d-e87af0c76a22}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\logicalDevice.h">
@@ -110,6 +122,15 @@
     <ClInclude Include="src\sampler.h">
       <Filter>Header Files\image</Filter>
     </ClInclude>
+    <ClInclude Include="src\buffer.h">
+      <Filter>Header Files\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pipeline.h">
+      <Filter>Header Files\pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vertex_input.h">
+      <Filter>Header Files\pipeline</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\logicalDevice.cpp">
@@ -159,6 +180,15 @@
     </ClCompile>
     <ClCompile Include="src\sampler.cpp">
       <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="src\buffer.cpp">
+      <Filter>Source Files\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pipeline.cpp">
+      <Filter>Source Files\pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vertex_input.cpp">
+      <Filter>Source Files\pipeline</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

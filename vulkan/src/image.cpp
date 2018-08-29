@@ -5,7 +5,7 @@ using namespace vk;
 
 Image::Image(VkDevice device, uint32_t width, uint32_t height, uint32_t depth,
 	VkFormat format, VkImageUsageFlags usage, uint32_t samples, uint32_t mipLevels) :
-		device(device), format(format)
+		device(device)
 {
 	VkExtent3D extent = {};
 	extent.width = width;
@@ -34,16 +34,14 @@ void Image::allocate(VkPhysicalDeviceMemoryProperties memoryProperties, VkMemory
 	VkMemoryRequirements memoryRequirements;
 	vkGetImageMemoryRequirements(device, handle, &memoryRequirements);
 
-	allocationSize = memoryRequirements.size;
-
 	VkMemoryAllocateInfo memAlloc = {};
 	memAlloc.sType = VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO;
-	memAlloc.allocationSize = allocationSize;
+	memAlloc.allocationSize = memoryRequirements.size;
 	memAlloc.memoryTypeIndex = getMemoryTypeIndex(memoryProperties,
 		memoryRequirements.memoryTypeBits, memoryPropertyFlags);
 
 	evaluateVkResult(vkAllocateMemory(device, &memAlloc, nullptr, &memory),
-		"Failed to allocate vertex memory");
+		"Failed to allocate image memory");
 }
 
 void Image::bindImageMemory()
@@ -52,13 +50,13 @@ void Image::bindImageMemory()
 		"Failed to bind memory to vertex buffer");
 }
 
-void Image::mapMemory(stbi_uc* pixels)
+void Image::mapMemory(stbi_uc* pixels, uint64_t size)
 {
 	void* pData;
-	evaluateVkResult(vkMapMemory(device, memory, 0, allocationSize, 0, &pData),
+	evaluateVkResult(vkMapMemory(device, memory, 0, size, 0, &pData),
 		"Failed to map image memory");
 
-	memcpy(pData, pixels, static_cast<size_t>(allocationSize));
+	memcpy(pData, pixels, static_cast<size_t>(size));
 	vkUnmapMemory(device, memory);
 	stbi_image_free(pixels);
 }

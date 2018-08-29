@@ -12,13 +12,11 @@ namespace vk {
 		void allocate(VkPhysicalDeviceMemoryProperties memoryProperties,
 			VkMemoryPropertyFlags memoryPropertyFlags);
 		void bindImageMemory();
-		void mapMemory(stbi_uc* pixels);
+		void mapMemory(stbi_uc* pixels, uint64_t);
 		void destroy();
 	private:
 		VkImage handle;
 		VkDeviceMemory memory;
-		int format;
-		VkDeviceSize allocationSize;
 		const VkDevice device;
 	};
 }

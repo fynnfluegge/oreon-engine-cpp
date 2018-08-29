@@ -119,6 +119,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\buffer.h" />
     <ClInclude Include="src\commandbuffer.h" />
     <ClInclude Include="src\command_pool.h" />
     <ClInclude Include="src\descriptor_pool.h" />
@@ -130,13 +131,16 @@
     <ClInclude Include="src\image_view.h" />
     <ClInclude Include="src\logicalDevice.h" />
     <ClInclude Include="src\physicalDevice.h" />
+    <ClInclude Include="src\pipeline.h" />
     <ClInclude Include="src\sampler.h" />
     <ClInclude Include="src\semaphore.h" />
     <ClInclude Include="src\submit_info.h" />
     <ClInclude Include="src\util.h" />
+    <ClInclude Include="src\vertex_input.h" />
     <ClInclude Include="src\vk_context.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\buffer.cpp" />
     <ClCompile Include="src\commandbuffer.cpp" />
     <ClCompile Include="src\command_pool.cpp" />
     <ClCompile Include="src\descriptor_pool.cpp" />
@@ -148,10 +152,12 @@
     <ClCompile Include="src\image_view.cpp" />
     <ClCompile Include="src\logicalDevice.cpp" />
     <ClCompile Include="src\physicalDevice.cpp" />
+    <ClCompile Include="src\pipeline.cpp" />
     <ClCompile Include="src\sampler.cpp" />
     <ClCompile Include="src\semaphore.cpp" />
     <ClCompile Include="src\submit_info.cpp" />
     <ClCompile Include="src\util.cpp" />
+    <ClCompile Include="src\vertex_input.cpp" />
     <ClCompile Include="src\vk_context.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
