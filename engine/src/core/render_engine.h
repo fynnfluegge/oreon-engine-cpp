@@ -4,7 +4,7 @@
 #include <iostream>
 #include <GLFW/glfw3.h>
 #include "vk_context.h"
-#include "context/oe_context.h"
+#include "oe_context.h"
 
 class RenderEngine {
 

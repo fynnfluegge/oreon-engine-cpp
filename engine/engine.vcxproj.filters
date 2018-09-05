@@ -5,9 +5,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Header Files\platform">
-      <UniqueIdentifier>{048ca4fd-674d-400c-b70e-04b1e19722c9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\core">
       <UniqueIdentifier>{2599f8c6-7c22-43c4-bb30-f7dff7f1a4dd}</UniqueIdentifier>
     </Filter>
@@ -31,13 +28,25 @@
     <Filter Include="Source Files\context">
       <UniqueIdentifier>{273cdf58-d00c-4d43-97e9-9557abc39e6c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\math">
+      <UniqueIdentifier>{d9ee0765-3cb4-43c1-b933-e34e22892eb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\math">
+      <UniqueIdentifier>{b8dc707c-e401-4837-afb5-8eacb20c742d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\scene">
+      <UniqueIdentifier>{4deb69cc-9c7b-4679-bfb1-b623453ee400}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\scene">
+      <UniqueIdentifier>{0939c503-c58e-462d-9fb0-11579ab20c82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\platform">
+      <UniqueIdentifier>{048ca4fd-674d-400c-b70e-04b1e19722c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\platform\window.h">
       <Filter>Header Files\platform</Filter>
-    </ClInclude>
-    <ClInclude Include="src\context\oe_context.h">
-      <Filter>Header Files\context</Filter>
     </ClInclude>
     <ClInclude Include="src\core\core_engine.h">
       <Filter>Header Files\core</Filter>
@@ -45,19 +54,58 @@
     <ClInclude Include="src\core\render_engine.h">
       <Filter>Header Files\core</Filter>
     </ClInclude>
+    <ClInclude Include="src\scene\camera.h">
+      <Filter>Header Files\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\matrix4f.h">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\vec2f.h">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\vec3f.h">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\vec4f.h">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene\vertex.h">
+      <Filter>Header Files\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\oe_context.h">
+      <Filter>Header Files\context</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\platform\window.cpp">
       <Filter>Source Files\platform</Filter>
-    </ClCompile>
-    <ClCompile Include="src\context\oe_context.cpp">
-      <Filter>Source Files\context</Filter>
     </ClCompile>
     <ClCompile Include="src\core\core_engine.cpp">
       <Filter>Source Files\core</Filter>
     </ClCompile>
     <ClCompile Include="src\core\render_engine.cpp">
       <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\camera.cpp">
+      <Filter>Source Files\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\math\matrix4f.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\math\vec2f.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\math\vec3f.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\math\vec4f.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\oe_context.cpp">
+      <Filter>Source Files\context</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\vertex.cpp">
+      <Filter>Source Files\scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

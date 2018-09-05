@@ -3,18 +3,9 @@
 #include <vector>
 #include <vulkan\vulkan.h>
 
-namespace vk {
+#include "scene\vertex.h"
 
-	enum VertexLayout
-	{
-		POS_NORMAL_UV_TAN_BITAN,
-		POS_NORMAL,
-		POS_UV,
-		POS,
-		POS_NORMAL_UV,
-		POS2D,
-		POS2D_UV
-	};
+namespace vk {
 
 	class VertexInput {
 	public:

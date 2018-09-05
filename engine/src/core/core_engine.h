@@ -4,7 +4,7 @@
 #include <iostream>
 #include "platform\window.h"
 #include "vk_context.h"
-#include "context\oe_context.h"
+#include "oe_context.h"
 #include "render_engine.h"
 
 class CoreEngine {
