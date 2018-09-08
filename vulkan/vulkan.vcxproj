@@ -132,8 +132,11 @@
     <ClInclude Include="src\logicalDevice.h" />
     <ClInclude Include="src\physicalDevice.h" />
     <ClInclude Include="src\pipeline.h" />
+    <ClInclude Include="src\render_pass.h" />
     <ClInclude Include="src\sampler.h" />
     <ClInclude Include="src\semaphore.h" />
+    <ClInclude Include="src\shader_module.h" />
+    <ClInclude Include="src\shader_pipeline.h" />
     <ClInclude Include="src\submit_info.h" />
     <ClInclude Include="src\util.h" />
     <ClInclude Include="src\vertex_input.h" />
@@ -153,8 +156,11 @@
     <ClCompile Include="src\logicalDevice.cpp" />
     <ClCompile Include="src\physicalDevice.cpp" />
     <ClCompile Include="src\pipeline.cpp" />
+    <ClCompile Include="src\render_pass.cpp" />
     <ClCompile Include="src\sampler.cpp" />
     <ClCompile Include="src\semaphore.cpp" />
+    <ClCompile Include="src\shader_module.cpp" />
+    <ClCompile Include="src\shader_pipeline.cpp" />
     <ClCompile Include="src\submit_info.cpp" />
     <ClCompile Include="src\util.cpp" />
     <ClCompile Include="src\vertex_input.cpp" />

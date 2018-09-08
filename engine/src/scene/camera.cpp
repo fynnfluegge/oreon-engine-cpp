@@ -12,8 +12,8 @@ Camera::Camera() : position(0,0,-10), forward(0,-1,1), up(0,1,0), scaleFactor(10
 
 void Camera::update()
 {
-	float movAmt = scaleFactor * 0.01;
-	float rotAmt = scaleFactor * 0.01;
+	float movAmt = scaleFactor * 0.01f;
+	float rotAmt = scaleFactor * 0.01f;
 
 	/*if(Input::getHoldingKey(GLFW_KEY_W))
 			move(getForward(), movAmt);

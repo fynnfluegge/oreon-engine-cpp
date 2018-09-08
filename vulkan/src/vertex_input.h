@@ -3,13 +3,15 @@
 #include <vector>
 #include <vulkan\vulkan.h>
 
-#include "scene\vertex.h"
+#include "entity\vertex.h"
 
 namespace vk {
 
 	class VertexInput {
 	public:
 		VertexInput(VertexLayout layout);
+		VkVertexInputBindingDescription getBindingDescription() const;
+		std::vector<VkVertexInputAttributeDescription> getAttributeDescriptions() const;
 	private:
 		VkVertexInputBindingDescription bindingDescription;
 		std::vector<VkVertexInputAttributeDescription> attributeDescriptions;

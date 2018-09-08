@@ -46,6 +46,16 @@ VertexInput::VertexInput(VertexLayout layout)
 	}
 }
 
+VkVertexInputBindingDescription VertexInput::getBindingDescription() const
+{
+	return bindingDescription;
+}
+
+std::vector<VkVertexInputAttributeDescription> VertexInput::getAttributeDescriptions() const
+{
+	return attributeDescriptions;
+}
+
 void VertexInput::createBindingDescription(uint32_t binding, int attributeCount, uint32_t stride)
 {
 	bindingDescription = {};

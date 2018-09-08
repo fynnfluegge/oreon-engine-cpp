@@ -131,6 +131,15 @@
     <ClInclude Include="src\vertex_input.h">
       <Filter>Header Files\pipeline</Filter>
     </ClInclude>
+    <ClInclude Include="src\shader_module.h">
+      <Filter>Header Files\pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="src\shader_pipeline.h">
+      <Filter>Header Files\pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="src\render_pass.h">
+      <Filter>Header Files\pipeline</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\logicalDevice.cpp">
@@ -188,6 +197,15 @@
       <Filter>Source Files\pipeline</Filter>
     </ClCompile>
     <ClCompile Include="src\vertex_input.cpp">
+      <Filter>Source Files\pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="src\shader_module.cpp">
+      <Filter>Source Files\pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="src\shader_pipeline.cpp">
+      <Filter>Source Files\pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render_pass.cpp">
       <Filter>Source Files\pipeline</Filter>
     </ClCompile>
   </ItemGroup>

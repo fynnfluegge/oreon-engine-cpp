@@ -8,9 +8,6 @@
     <Filter Include="Header Files\core">
       <UniqueIdentifier>{2599f8c6-7c22-43c4-bb30-f7dff7f1a4dd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\context">
-      <UniqueIdentifier>{126218ca-5215-4511-85c2-2d943384cb1f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
@@ -24,9 +21,6 @@
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Source Files\context">
-      <UniqueIdentifier>{273cdf58-d00c-4d43-97e9-9557abc39e6c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\math">
       <UniqueIdentifier>{d9ee0765-3cb4-43c1-b933-e34e22892eb6}</UniqueIdentifier>
@@ -42,6 +36,12 @@
     </Filter>
     <Filter Include="Header Files\platform">
       <UniqueIdentifier>{048ca4fd-674d-400c-b70e-04b1e19722c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\entity">
+      <UniqueIdentifier>{bed6a3ed-c7ab-409d-9ce0-249e20b0eb1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\entity">
+      <UniqueIdentifier>{b3604c4a-7521-419f-9d94-d202852a4a10}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -69,11 +69,11 @@
     <ClInclude Include="src\math\vec4f.h">
       <Filter>Header Files\math</Filter>
     </ClInclude>
-    <ClInclude Include="src\scene\vertex.h">
-      <Filter>Header Files\scene</Filter>
+    <ClInclude Include="src\entity\vertex.h">
+      <Filter>Header Files\entity</Filter>
     </ClInclude>
     <ClInclude Include="src\core\oe_context.h">
-      <Filter>Header Files\context</Filter>
+      <Filter>Header Files\core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -101,11 +101,11 @@
     <ClCompile Include="src\math\vec4f.cpp">
       <Filter>Source Files\math</Filter>
     </ClCompile>
-    <ClCompile Include="src\core\oe_context.cpp">
-      <Filter>Source Files\context</Filter>
+    <ClCompile Include="src\entity\vertex.cpp">
+      <Filter>Source Files\entity</Filter>
     </ClCompile>
-    <ClCompile Include="src\scene\vertex.cpp">
-      <Filter>Source Files\scene</Filter>
+    <ClCompile Include="src\core\oe_context.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
