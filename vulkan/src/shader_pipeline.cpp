@@ -8,10 +8,10 @@ ShaderPipeline::ShaderPipeline(VkDevice device) : device(device)
 
 void ShaderPipeline::createShaderPipeline()
 {
-	stageCreateInfos = std::vector< VkPipelineShaderStageCreateInfo>(shaderStages.size());
+	shaderStageCreateInfos = std::vector< VkPipelineShaderStageCreateInfo>(shaderStages.size());
 
 	for (ShaderModule shaderStage : shaderStages) {
-		stageCreateInfos.push_back(shaderStage.getShaderStageCreateInfo());
+		shaderStageCreateInfos.push_back(shaderStage.getShaderStageCreateInfo());
 	}
 }
 
@@ -50,4 +50,9 @@ void ShaderPipeline::destroy()
 	for (ShaderModule shaderModule : shaderStages) {
 			shaderModule.destroy();
 	}
+}
+
+std::vector<VkPipelineShaderStageCreateInfo> ShaderPipeline::getShaderStageCreateInfos() const
+{
+	return shaderStageCreateInfos;
 }

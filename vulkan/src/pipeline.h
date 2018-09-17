@@ -3,25 +3,28 @@
 #include <vulkan\vulkan.h>
 #include <vector>
 #include "vertex_input.h"
+#include "render_pass.h"
+#include "shader_pipeline.h"
 
 namespace vk {
 
 	class Pipeline {
 	public:
 		Pipeline(VkDevice device);
-		//void createGraphicsPipeline(ShaderPipeline shaderPipeline, long renderPass);
+		void createGraphicsPipeline(ShaderPipeline shaderPipeline, RenderPass renderPass);
+		void createComputePipeline(ShaderModule shader);
 		void setLayout(const VkDescriptorSetLayout* pLayouts, const VkPushConstantRange* pPushConstantRanges);
 		void setVertexInput(const VertexInput& vertexInput);
 		void setPushConstantsRange(VkShaderStageFlags stageFlags, uint32_t size);
 		void setInputAssembly(VkPrimitiveTopology topology);
 		void setViewportAndScissor(float width, float height);
 		void setRasterizer();
-		void setMultisampling(uint32_t samples);
+		void setMultisamplingState(uint32_t samples);
 		void addColorBlendAttachment();
 		void addColorBlendAttachment(VkBlendFactor srcColorBlendFactor, VkBlendFactor dstColorBlendFactor,
 			VkBlendFactor srcAlphaBlendFactor, VkBlendFactor dstAlphaBlendFactor, VkBlendOp colorBlendOp, VkBlendOp alphaBlendOp);
 		void setColorBlendState();
-		void setDepthAndStencilTest(VkBool32 depthTestEnable);
+		void setDepthAndStencilState(VkBool32 depthTestEnable);
 		void setDynamicState();
 		void setTessellationState(uint32_t patchControlPoints);
 		void destroy();
@@ -34,12 +37,12 @@ namespace vk {
 		VkPushConstantRange pushConstantRange;
 		VkPipelineViewportStateCreateInfo viewportAndScissorState;
 		VkPipelineRasterizationStateCreateInfo rasterizer;
-		VkPipelineMultisampleStateCreateInfo multisampling;
-		VkPipelineColorBlendStateCreateInfo colorBlending;
-		std::vector<VkPipelineColorBlendAttachmentState> colorBlendStates;
-		VkPipelineDepthStencilStateCreateInfo depthStencil;
+		VkPipelineMultisampleStateCreateInfo multisamplingState;
+		VkPipelineColorBlendStateCreateInfo colorBlendingState;
+		std::vector<VkPipelineColorBlendAttachmentState> colorBlendAttachmentStates;
+		VkPipelineDepthStencilStateCreateInfo depthStencilState;
 		VkPipelineDynamicStateCreateInfo dynamicState;
-		VkPipelineTessellationStateCreateInfo tessellationInfo;
+		VkPipelineTessellationStateCreateInfo tessellationState;
 		VkViewport viewport;
 		VkRect2D scissor;
 		std::vector<VkDynamicState> dynamicStates;

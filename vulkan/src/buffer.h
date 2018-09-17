@@ -10,7 +10,7 @@ namespace vk {
 		void allocate(VkPhysicalDeviceMemoryProperties memoryProperties,
 			VkMemoryPropertyFlags memoryPropertyFlags);
 		void bindBufferMemory();
-		void mapMemory(const void* data);
+		void mapMemory(const void* pData);
 		void destroy();
 	private:
 		VkBuffer handle;

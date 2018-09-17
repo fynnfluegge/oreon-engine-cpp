@@ -18,9 +18,11 @@ namespace vk {
 		void createFragmentShader(const std::string& file);
 		void addShaderModule(ShaderModule shaderModule);
 		void destroy();
+		std::vector<VkPipelineShaderStageCreateInfo> getShaderStageCreateInfos() const;
+
 	private:
 		std::vector<ShaderModule> shaderStages;
-		std::vector<VkPipelineShaderStageCreateInfo> stageCreateInfos;
+		std::vector<VkPipelineShaderStageCreateInfo> shaderStageCreateInfos;
 		const VkDevice device;
 	};
 }

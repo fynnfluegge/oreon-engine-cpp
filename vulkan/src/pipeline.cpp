@@ -1,10 +1,45 @@
 #include "pipeline.h"
-#include "util.h"
+#include "util\util.h"
 
 using namespace vk;
 
 Pipeline::Pipeline(VkDevice device) : device(device)
 {
+}
+
+void Pipeline::createGraphicsPipeline(ShaderPipeline shaderPipeline, RenderPass renderPass)
+{
+	VkGraphicsPipelineCreateInfo pipelineCreateInfo = {};
+	pipelineCreateInfo.sType = VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO;
+	pipelineCreateInfo.pStages = shaderPipeline.getShaderStageCreateInfos().data();
+	pipelineCreateInfo.pVertexInputState = &vertexInputState;
+	pipelineCreateInfo.pInputAssemblyState = &inputAssembly;
+	pipelineCreateInfo.pViewportState = &viewportAndScissorState;
+	pipelineCreateInfo.pRasterizationState = &rasterizer;
+	pipelineCreateInfo.pMultisampleState = &multisamplingState;
+	pipelineCreateInfo.pDepthStencilState = &depthStencilState;
+	pipelineCreateInfo.pColorBlendState = &colorBlendingState;
+	pipelineCreateInfo.pDynamicState = nullptr;
+	pipelineCreateInfo.pTessellationState = &tessellationState;
+	pipelineCreateInfo.layout = layout;
+	pipelineCreateInfo.renderPass = renderPass.getHandle();
+	pipelineCreateInfo.subpass = 0;
+	pipelineCreateInfo.basePipelineHandle = VK_NULL_HANDLE;
+	pipelineCreateInfo.basePipelineIndex = -1;
+
+	evaluateVkResult(vkCreateGraphicsPipelines(device, VK_NULL_HANDLE, 1, &pipelineCreateInfo, nullptr, &handle),
+		"Failed to create graphics pipeline");
+}
+
+void Pipeline::createComputePipeline(ShaderModule shader)
+{
+	VkComputePipelineCreateInfo pipelineCreateInfo = {};
+	pipelineCreateInfo.sType = VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO;
+	pipelineCreateInfo.stage = shader.getShaderStageCreateInfo();
+	pipelineCreateInfo.layout = layout;
+
+	evaluateVkResult(vkCreateComputePipelines(device, VK_NULL_HANDLE, 1, &pipelineCreateInfo, nullptr, &handle),
+		"Failed to create compute pipeline");
 }
 
 void Pipeline::setLayout(const VkDescriptorSetLayout* pLayouts, const VkPushConstantRange* pPushConstantRanges)
@@ -53,8 +88,8 @@ void Pipeline::setViewportAndScissor(float width, float height)
 	viewport.maxDepth = 1.0f;
 
 	VkRect2D scissor = {};
-	scissor.extent.width = width;
-	scissor.extent.height = height;
+	scissor.extent.width = static_cast<uint32_t> (width);
+	scissor.extent.height = static_cast<uint32_t>  (height);
 	scissor.offset.x = 0;
 	scissor.offset.y = 0;
 
@@ -82,16 +117,16 @@ void Pipeline::setRasterizer()
 	rasterizer.depthBiasClamp = 0;
 }
 
-void Pipeline::setMultisampling(uint32_t samples)
+void Pipeline::setMultisamplingState(uint32_t samples)
 {
-	multisampling = {};
-	multisampling.sType = VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO;
-	multisampling.sampleShadingEnable = VK_FALSE;
-	multisampling.rasterizationSamples = getSampleCountBit(samples);
-	multisampling.pSampleMask = nullptr;
-	multisampling.minSampleShading = 1;
-	multisampling.alphaToCoverageEnable = VK_FALSE;
-	multisampling.alphaToOneEnable = VK_FALSE;
+	multisamplingState = {};
+	multisamplingState.sType = VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO;
+	multisamplingState.sampleShadingEnable = VK_FALSE;
+	multisamplingState.rasterizationSamples = getSampleCountBit(samples);
+	multisamplingState.pSampleMask = nullptr;
+	multisamplingState.minSampleShading = 1;
+	multisamplingState.alphaToCoverageEnable = VK_FALSE;
+	multisamplingState.alphaToOneEnable = VK_FALSE;
 }
 
 void Pipeline::addColorBlendAttachment()
@@ -123,27 +158,27 @@ void Pipeline::addColorBlendAttachment(VkBlendFactor srcColorBlendFactor, VkBlen
 
 void Pipeline::setColorBlendState()
 {
-	colorBlendStates = std::vector< VkPipelineColorBlendAttachmentState>(colorBlendAttachments.size());
+	colorBlendAttachmentStates = std::vector< VkPipelineColorBlendAttachmentState>(colorBlendAttachments.size());
 
-	colorBlending = {};
-	colorBlending.sType = VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO;
-	colorBlending.logicOpEnable = VK_FALSE;
-	colorBlending.pAttachments = colorBlendStates.data();
+	colorBlendingState = {};
+	colorBlendingState.sType = VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO;
+	colorBlendingState.logicOpEnable = VK_FALSE;
+	colorBlendingState.pAttachments = colorBlendAttachmentStates.data();
 }
 
-void Pipeline::setDepthAndStencilTest(VkBool32 depthTestEnable)
+void Pipeline::setDepthAndStencilState(VkBool32 depthTestEnable)
 {
-	depthStencil = {};
-	depthStencil.sType = VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO;
-	depthStencil.depthTestEnable= depthTestEnable;
-	depthStencil.depthWriteEnable = VK_TRUE;
-	depthStencil.depthCompareOp = VK_COMPARE_OP_LESS;
-	depthStencil.depthBoundsTestEnable = VK_FALSE;
-	depthStencil.stencilTestEnable = VK_FALSE;
-	depthStencil.back.failOp = VK_STENCIL_OP_KEEP;
-	depthStencil.back.passOp = VK_STENCIL_OP_KEEP;
-	depthStencil.back.compareOp = VK_COMPARE_OP_ALWAYS;
-	depthStencil.front = depthStencil.back;
+	depthStencilState = {};
+	depthStencilState.sType = VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO;
+	depthStencilState.depthTestEnable= depthTestEnable;
+	depthStencilState.depthWriteEnable = VK_TRUE;
+	depthStencilState.depthCompareOp = VK_COMPARE_OP_LESS;
+	depthStencilState.depthBoundsTestEnable = VK_FALSE;
+	depthStencilState.stencilTestEnable = VK_FALSE;
+	depthStencilState.back.failOp = VK_STENCIL_OP_KEEP;
+	depthStencilState.back.passOp = VK_STENCIL_OP_KEEP;
+	depthStencilState.back.compareOp = VK_COMPARE_OP_ALWAYS;
+	depthStencilState.front = depthStencilState.back;
 }
 
 void Pipeline::setDynamicState()
@@ -159,10 +194,10 @@ void Pipeline::setDynamicState()
 
 void Pipeline::setTessellationState(uint32_t patchControlPoints)
 {
-	tessellationInfo = {};
-	tessellationInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_STATE_CREATE_INFO;
-	tessellationInfo.flags = 0;
-	tessellationInfo.patchControlPoints = patchControlPoints;
+	tessellationState = {};
+	tessellationState.sType = VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_STATE_CREATE_INFO;
+	tessellationState.flags = 0;
+	tessellationState.patchControlPoints = patchControlPoints;
 }
 
 void Pipeline::destroy()

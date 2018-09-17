@@ -1,5 +1,5 @@
 #include "command_pool.h"
-#include "util.h"
+#include "util\util.h"
 
 vk::CommandPool::CommandPool(VkDevice device, uint32_t queueFamilyIndex) : device(device)
 {
@@ -19,4 +19,9 @@ vk::CommandPool::CommandPool(VkDevice device, uint32_t queueFamilyIndex) : devic
 void vk::CommandPool::destroy()
 {
 	vkDestroyCommandPool(device, handle, nullptr);
+}
+
+VkCommandPool vk::CommandPool::getHandle() const
+{
+	return handle;
 }

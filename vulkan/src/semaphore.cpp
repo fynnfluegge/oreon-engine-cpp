@@ -1,5 +1,5 @@
 #include "semaphore.h"
-#include "util.h"
+#include "util\util.h"
 
 using namespace vk;
 
@@ -13,7 +13,7 @@ Semaphore::Semaphore(VkDevice device) : device(device)
 		"Failed to create semaphore");
 }
 
-void vk::Semaphore::destroy()
+void Semaphore::destroy()
 {
 	vkDestroySemaphore(device, handle, nullptr);
 }

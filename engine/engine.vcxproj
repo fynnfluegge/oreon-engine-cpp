@@ -134,6 +134,7 @@
     <ClInclude Include="src\core\core_engine.h" />
     <ClInclude Include="src\core\oe_context.h" />
     <ClInclude Include="src\core\render_engine.h" />
+    <ClInclude Include="src\entity\mesh.h" />
     <ClInclude Include="src\entity\vertex.h" />
     <ClInclude Include="src\math\matrix4f.h" />
     <ClInclude Include="src\math\vec2f.h" />
@@ -141,11 +142,13 @@
     <ClInclude Include="src\math\vec4f.h" />
     <ClInclude Include="src\platform\window.h" />
     <ClInclude Include="src\scene\camera.h" />
+    <ClInclude Include="src\util\mesh_generator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\core\core_engine.cpp" />
     <ClCompile Include="src\core\oe_context.cpp" />
     <ClCompile Include="src\core\render_engine.cpp" />
+    <ClCompile Include="src\entity\mesh.cpp" />
     <ClCompile Include="src\entity\vertex.cpp" />
     <ClCompile Include="src\math\matrix4f.cpp" />
     <ClCompile Include="src\math\vec2f.cpp" />
@@ -153,6 +156,7 @@
     <ClCompile Include="src\math\vec4f.cpp" />
     <ClCompile Include="src\platform\window.cpp" />
     <ClCompile Include="src\scene\camera.cpp" />
+    <ClCompile Include="src\util\mesh_generator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\vulkan\vulkan.vcxproj">

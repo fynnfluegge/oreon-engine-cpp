@@ -1,5 +1,5 @@
 #include "buffer.h"
-#include "util.h"
+#include "util\util.h"
 
 using namespace vk;
 
@@ -38,13 +38,13 @@ void Buffer::bindBufferMemory()
 		"Failed to map image memory");
 }
 
-void Buffer::mapMemory(const void* data)
+void Buffer::mapMemory(const void* pData)
 {
-	void* pData;
-	evaluateVkResult(vkMapMemory(device, memory, 0, size, 0, &pData),
+	void* pMemoryData;
+	evaluateVkResult(vkMapMemory(device, memory, 0, size, 0, &pMemoryData),
 		"Failed to map image memory");
 
-	memcpy(pData, data, static_cast<size_t>(size));
+	memcpy(pMemoryData, pData, static_cast<size_t>(size));
 	vkUnmapMemory(device, memory);
 }
 

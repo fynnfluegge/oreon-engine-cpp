@@ -1,6 +1,6 @@
 #include "logicalDevice.h"
 
-#include "util.h"
+#include "util\util.h"
 
 using namespace vk;
 
@@ -88,4 +88,9 @@ VkQueue LogicalDevice::getDeviceQueue(uint32_t queueFamilyIndex, uint32_t queueI
 	VkQueue queue;
 	vkGetDeviceQueue(handle, queueFamilyIndex, queueIndex, &queue);
 	return queue;
+}
+
+VkDevice LogicalDevice::getHandle() const
+{
+	return handle;
 }

@@ -1,6 +1,6 @@
 #include "physicalDevice.h"
 #include "vk_context.h"
-#include "util.h"
+#include "util\util.h"
 
 using namespace vk;
 
@@ -180,6 +180,50 @@ bool PhysicalDevice::isExtensionSupported(const char* extension)
 		}
 	}
 	return false;
+}
+
+bool PhysicalDevice::checkDeviceFormatAndColorSpaceSupport(VkFormat format, VkColorSpaceKHR colorSpace) const
+{
+	if (deviceSurfaceProperties.formats.at(0).format == VK_FORMAT_UNDEFINED) {
+		// surface has no format restrictions
+		return true;
+	}
+
+	for (const auto& surfaceFormat : deviceSurfaceProperties.formats) {
+
+		if (surfaceFormat.format == format
+			&& surfaceFormat.colorSpace == colorSpace) {
+			return true;
+		}
+	}
+	return false;
+}
+
+bool PhysicalDevice::checkDevicePresentationModeSupport(VkPresentModeKHR presentMode) const
+{
+	for (const auto& availablePresentMode : deviceSurfaceProperties.presentModes) {
+
+		if (availablePresentMode == presentMode) {
+			return true;
+		}
+	}
+	return false;
+}
+
+uint32_t PhysicalDevice::getMinImageCount4TripleBuffering() const
+{
+	int minImageCount = deviceSurfaceProperties.surfaceCapabilities.minImageCount + 1;
+	if ((deviceSurfaceProperties.surfaceCapabilities.maxImageCount > 0) &&
+			(minImageCount > deviceSurfaceProperties.surfaceCapabilities.maxImageCount)) {
+		minImageCount = deviceSurfaceProperties.surfaceCapabilities.maxImageCount;
+	}
+
+	return minImageCount;
+}
+
+DeviceSurfaceProperties PhysicalDevice::getDeviceSurfaceProperties() const
+{
+	return deviceSurfaceProperties;
 }
 
 const VkPhysicalDevice& PhysicalDevice::getHandle()

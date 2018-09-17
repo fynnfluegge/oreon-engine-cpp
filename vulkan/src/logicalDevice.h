@@ -8,7 +8,7 @@ class LogicalDevice {
 public:
 	LogicalDevice(PhysicalDevice physicalDevice);
 	VkQueue getDeviceQueue(uint32_t queueFamilyIndex, uint32_t queueIndex);
-
+	VkDevice getHandle() const;
 private:
 	VkDevice handle;
 	int graphicsQueueFamilyIndex;

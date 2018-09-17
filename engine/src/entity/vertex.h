@@ -18,10 +18,15 @@ class Vertex {
 public:
 	Vertex();
 	Vertex(Vec3f pos);
+	Vec3f getPosition() const;
+	Vec3f getNormal() const;
+	Vec2f getUv() const;
+	Vec3f getTangent() const;
+	Vec3f getBitangent() const;
 private:
 	Vec3f position;
 	Vec3f normal;
-	Vec2f texCoord;
+	Vec2f uv;
 	Vec3f tangent;
 	Vec3f bitangent;
 };

@@ -1,5 +1,5 @@
-#include "Image.h"
-#include "util.h"
+#include "image.h"
+#include "util\util.h"
 
 using namespace vk;
 

@@ -33,7 +33,10 @@ public:
 	const QueueFamily getComputeExclusiveQueueFamily();
 	const QueueFamily getTransferExclusiveQueueFamily();
 	bool isExtensionSupported(const char* extension);
-
+	bool checkDeviceFormatAndColorSpaceSupport(VkFormat format, VkColorSpaceKHR colorSpace) const;
+	bool checkDevicePresentationModeSupport(VkPresentModeKHR presentMode) const;
+	uint32_t getMinImageCount4TripleBuffering() const;
+	DeviceSurfaceProperties getDeviceSurfaceProperties() const;
 private:
 	VkPhysicalDevice handle;
 	VkPhysicalDeviceProperties properties;

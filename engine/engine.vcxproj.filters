@@ -43,6 +43,12 @@
     <Filter Include="Source Files\entity">
       <UniqueIdentifier>{b3604c4a-7521-419f-9d94-d202852a4a10}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\util">
+      <UniqueIdentifier>{d00bc5e6-4f11-422c-b415-f1b3bc0e0b76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\util">
+      <UniqueIdentifier>{0fca0b0f-ddf9-40d9-9009-bfda4179d568}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\platform\window.h">
@@ -75,6 +81,12 @@
     <ClInclude Include="src\core\oe_context.h">
       <Filter>Header Files\core</Filter>
     </ClInclude>
+    <ClInclude Include="src\entity\mesh.h">
+      <Filter>Header Files\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\mesh_generator.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\platform\window.cpp">
@@ -106,6 +118,12 @@
     </ClCompile>
     <ClCompile Include="src\core\oe_context.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\mesh.cpp">
+      <Filter>Source Files\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\mesh_generator.cpp">
+      <Filter>Source Files\util</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

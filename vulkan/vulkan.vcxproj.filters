@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
@@ -12,65 +8,93 @@
     <Filter Include="Header Files\context">
       <UniqueIdentifier>{e10e3806-acac-412d-8a24-780f940a18ed}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\context">
-      <UniqueIdentifier>{51c4ae8d-47f7-4e2b-84c0-459124e4f7ae}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{382dff94-4375-4d3c-a5e0-5f1348b3f37f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\device">
       <UniqueIdentifier>{d45546e0-c319-472b-b7cb-107e8cbbd8c1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\device">
-      <UniqueIdentifier>{9dab0554-58c5-496a-9832-fb420dce40cf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\util">
       <UniqueIdentifier>{43301f1a-c450-42a0-8c37-4b605f233783}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\util">
-      <UniqueIdentifier>{7fa897aa-a401-48ae-ad6e-4316c067a63d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\command">
       <UniqueIdentifier>{103c3c83-848c-4f45-8748-40f8deb4326b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\command">
-      <UniqueIdentifier>{46fdf9ef-4960-4ebf-b76a-af2ae24bd51c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\descriptor">
       <UniqueIdentifier>{6a47b4d1-576b-4deb-8276-e7dc0d4cf45c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\descriptor">
-      <UniqueIdentifier>{a206c2aa-b86c-47b5-aeb1-07e0e4223c79}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\synchronization">
       <UniqueIdentifier>{e291e089-0678-442c-a5d4-38e13367a9d0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\synchronization">
-      <UniqueIdentifier>{823da4cd-c422-46bf-bdc0-db6abf4961f1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\framebuffer">
       <UniqueIdentifier>{d9fcbc8e-dc48-43d8-97c3-8eba3aeb28d2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\framebuffer">
-      <UniqueIdentifier>{466b7263-6382-4298-a67a-c5959615b8fd}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\image">
       <UniqueIdentifier>{a9353b5b-4e01-4fa2-9888-22a92094f75a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\image">
-      <UniqueIdentifier>{23a323ad-fc69-4f69-b728-53bff9d4401c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\memory">
       <UniqueIdentifier>{371768f3-8ecc-487f-870e-4debba4d4ea8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\memory">
-      <UniqueIdentifier>{b58850d0-ae33-4e54-a2e2-16fb5f30f367}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\pipeline">
       <UniqueIdentifier>{b34d26c0-ecad-4b50-ab5d-d0dc2f2d3797}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\swapchain">
+      <UniqueIdentifier>{61756024-d035-4335-8094-141279682661}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\context">
+      <UniqueIdentifier>{51c4ae8d-47f7-4e2b-84c0-459124e4f7ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\device">
+      <UniqueIdentifier>{9dab0554-58c5-496a-9832-fb420dce40cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\util">
+      <UniqueIdentifier>{7fa897aa-a401-48ae-ad6e-4316c067a63d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\command">
+      <UniqueIdentifier>{46fdf9ef-4960-4ebf-b76a-af2ae24bd51c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\descriptor">
+      <UniqueIdentifier>{a206c2aa-b86c-47b5-aeb1-07e0e4223c79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\synchronization">
+      <UniqueIdentifier>{823da4cd-c422-46bf-bdc0-db6abf4961f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\framebuffer">
+      <UniqueIdentifier>{466b7263-6382-4298-a67a-c5959615b8fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\image">
+      <UniqueIdentifier>{23a323ad-fc69-4f69-b728-53bff9d4401c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\memory">
+      <UniqueIdentifier>{b58850d0-ae33-4e54-a2e2-16fb5f30f367}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files\pipeline">
       <UniqueIdentifier>{e9daf448-6bd2-41cc-a13d-e87af0c76a22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\swapchain">
+      <UniqueIdentifier>{389b6d96-42e3-4de1-969d-607471946212}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\wrapper">
+      <UniqueIdentifier>{6530e797-db37-4ce2-b6bc-099e48a63d02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\wrapper">
+      <UniqueIdentifier>{4f4ef0c2-b3f3-4cc2-8d88-893a5f01901d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\wrapper\buffer">
+      <UniqueIdentifier>{908c7420-566e-4f74-86b4-fd4dea829d7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\wrapper\buffer">
+      <UniqueIdentifier>{d32348e3-7194-4ef4-8495-9cac6800d177}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\wrapper\image">
+      <UniqueIdentifier>{d2dd0119-6464-482c-9da1-543999efc4d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\wrapper\image">
+      <UniqueIdentifier>{a7cd4267-88de-4e11-9441-6e74266f20f6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -79,9 +103,6 @@
     </ClInclude>
     <ClInclude Include="src\physicalDevice.h">
       <Filter>Header Files\device</Filter>
-    </ClInclude>
-    <ClInclude Include="src\util.h">
-      <Filter>Header Files\util</Filter>
     </ClInclude>
     <ClInclude Include="src\vk_context.h">
       <Filter>Header Files\context</Filter>
@@ -113,9 +134,6 @@
     <ClInclude Include="src\framebuffer.h">
       <Filter>Header Files\framebuffer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Image.h">
-      <Filter>Header Files\image</Filter>
-    </ClInclude>
     <ClInclude Include="src\image_view.h">
       <Filter>Header Files\image</Filter>
     </ClInclude>
@@ -140,6 +158,24 @@
     <ClInclude Include="src\render_pass.h">
       <Filter>Header Files\pipeline</Filter>
     </ClInclude>
+    <ClInclude Include="src\image.h">
+      <Filter>Header Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="src\swapchain.h">
+      <Filter>Header Files\swapchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\buffer_util.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\wrapper\staging_buffer.h">
+      <Filter>Header Files\wrapper\buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\util.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\wrapper\device_local_buffer.h">
+      <Filter>Header Files\wrapper\buffer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\logicalDevice.cpp">
@@ -150,9 +186,6 @@
     </ClCompile>
     <ClCompile Include="src\vk_context.cpp">
       <Filter>Source Files\context</Filter>
-    </ClCompile>
-    <ClCompile Include="src\util.cpp">
-      <Filter>Source Files\util</Filter>
     </ClCompile>
     <ClCompile Include="src\commandbuffer.cpp">
       <Filter>Source Files\command</Filter>
@@ -207,6 +240,21 @@
     </ClCompile>
     <ClCompile Include="src\render_pass.cpp">
       <Filter>Source Files\pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="src\swapchain.cpp">
+      <Filter>Source Files\swapchain</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\buffer_util.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\wrapper\staging_buffer.cpp">
+      <Filter>Source Files\wrapper\buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\util.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\wrapper\device_local_buffer.cpp">
+      <Filter>Source Files\wrapper\buffer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
